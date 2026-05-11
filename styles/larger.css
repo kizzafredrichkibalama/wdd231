@@ -36,18 +36,18 @@
     font-size: 0.95rem;
   }
 
-  /* On desktop the active indicator is a gold underline instead of a left border */
+  /* On desktop the active indicator is a gold underline on a darker navy background */
   nav ul li a:hover,
   nav ul li a:focus {
     border-left-color: transparent;
     border-bottom-color: var(--gold);
-    background: rgba(240, 192, 64, 0.12);
+    background: #0d1a2e;
   }
 
   nav ul li a[aria-current="page"] {
     border-left-color: transparent;
     border-bottom-color: var(--gold);
-    background: rgba(240, 192, 64, 0.12);
+    background: #0d1a2e;
   }
 
   main {

@@ -65,6 +65,7 @@ header {
   align-items: center;
   gap: 0.75rem;
   text-decoration: none;
+  color: var(--gold);
 }
 
 .site-identity svg {
@@ -152,17 +153,17 @@ nav ul li a {
 
 nav ul li a:hover,
 nav ul li a:focus {
-  background: rgba(240, 192, 64, 0.12);
+  background: #0d1a2e;
   border-left-color: var(--gold);
   color: var(--gold);
   outline: none;
 }
 
-/* The active page link is highlighted in gold */
+/* The active page link is highlighted in gold text on a darker navy background */
 nav ul li a[aria-current="page"] {
   border-left-color: var(--gold);
   color: var(--gold);
-  background: rgba(240, 192, 64, 0.12);
+  background: #0d1a2e;
 }
 
 /* Main content area */
