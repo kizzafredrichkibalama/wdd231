@@ -1,11 +1,7 @@
-// date.js — dynamic copyright year and last modified date
+// date.js - dynamic copyright year and last modified date
 
-const yearEl = document.getElementById('copyright-year');
-if (yearEl) {
-  yearEl.textContent = new Date().getFullYear();
-}
+const yearEl = document.getElementById('footer-year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-const lastModEl = document.getElementById('lastModified');
-if (lastModEl) {
-  lastModEl.textContent = 'Last Modification: ' + document.lastModified;
-}
+const modEl = document.getElementById('lastModified');
+if (modEl) modEl.textContent = 'Last Modification: ' + document.lastModified;

@@ -1,0 +1,364 @@
+/* small.css - mobile-first base styles (320px and up) */
+
+/* Color palette and reusable values */
+:root {
+  --navy:      #1a2e4a;
+  --gold:      #f0c040;
+  --cream:     #f8f4ec;
+  --slate:     #4a5568;
+  --light:     #eef2f7;
+  --white:     #ffffff;
+  --done-bg:   #1a4a2e;
+  --done-text: #a8f0c0;
+  --shadow:    0 2px 12px rgba(26, 46, 74, 0.12);
+  --radius:    8px;
+}
+
+/* Basic reset so all browsers start from the same point */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 400;
+  background: var(--cream);
+  color: var(--navy);
+  line-height: 1.65;
+  min-width: 320px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--navy);
+}
+
+/* Header bar at the top of the page */
+header {
+  background: var(--navy);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Logo and name link inside the header */
+.site-identity {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--gold);
+}
+
+.site-identity svg {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+.site-identity span {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  color: var(--gold);
+  letter-spacing: 0.03em;
+}
+
+/* Hamburger menu button - three horizontal lines */
+#menu-btn {
+  background: none;
+  border: 2px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 0.35rem 0.5rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  transition: background 0.2s;
+}
+
+#menu-btn:hover,
+#menu-btn:focus {
+  background: rgba(240, 192, 64, 0.15);
+  outline: none;
+}
+
+/* Each line of the hamburger icon */
+#menu-btn span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* When the menu is open, the three lines rotate into an X shape */
+#menu-btn.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+#menu-btn.open span:nth-child(2) {
+  opacity: 0;
+}
+
+#menu-btn.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Navigation menu - hidden on mobile until hamburger is clicked */
+nav {
+  background: var(--navy);
+  color: var(--light);
+  border-top: 1px solid rgba(240, 192, 64, 0.25);
+  display: none;
+}
+
+nav.open {
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0.5rem 0;
+}
+
+nav ul li a {
+  display: block;
+  padding: 0.85rem 1.5rem;
+  color: var(--light);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-left: 3px solid transparent;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+  background: #0d1a2e;
+  border-left-color: var(--gold);
+  color: var(--gold);
+  outline: none;
+}
+
+/* The active page link is highlighted in gold text on a darker navy background */
+nav ul li a[aria-current="page"] {
+  border-left-color: var(--gold);
+  color: var(--gold);
+  background: #0d1a2e;
+}
+
+/* Main content area */
+main {
+  padding: 1.5rem 1.25rem 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+main h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--navy);
+  margin-bottom: 1.5rem;
+  border-bottom: 3px solid var(--gold);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+/* White card style for each section */
+section {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 1.75rem;
+  overflow: hidden;
+}
+
+section h2 {
+  background: var(--navy);
+  color: var(--gold);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  padding: 0.75rem 1.25rem;
+  letter-spacing: 0.04em;
+}
+
+.section-body {
+  padding: 1.25rem;
+}
+
+.about-text p {
+  font-size: 0.95rem;
+  color: var(--slate);
+  line-height: 1.7;
+}
+
+/* Student photo centered inside its section */
+.photo-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.25rem;
+  min-height: 180px;
+}
+
+.photo-wrap img {
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  border-radius: var(--radius);
+  border: 3px solid var(--gold);
+  box-shadow: var(--shadow);
+  object-fit: cover;
+}
+
+/* Filter buttons above the course cards */
+.course-filters {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  padding: 1rem 1.25rem 0;
+}
+
+.filter-btn {
+  background: var(--light);
+  border: 2px solid var(--navy);
+  border-radius: var(--radius);
+  padding: 0.45rem 1.25rem;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--navy);
+  flex: 1;
+  min-width: 80px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.filter-btn:hover,
+.filter-btn:focus {
+  background: var(--navy);
+  color: var(--gold);
+  outline: none;
+}
+
+.filter-btn.active {
+  background: var(--navy);
+  color: var(--gold);
+}
+
+/* Grid that holds the individual course cards */
+.course-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.6rem;
+  padding: 1rem 1.25rem;
+}
+
+/* A single course card */
+.course-card {
+  border: 2px solid var(--light);
+  border-radius: var(--radius);
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--navy);
+  background: var(--light);
+  text-align: center;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.course-card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+/* Completed courses use a dark green style so they stand out */
+.course-card.completed {
+  background: var(--done-bg);
+  color: var(--done-text);
+  border-color: #2a6a3e;
+}
+
+/* Total credits line below the course cards */
+.credits-total {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--slate);
+  padding: 0 1.25rem 1.25rem;
+  font-style: italic;
+}
+
+/* Footer at the bottom of the page */
+footer {
+  background: var(--navy);
+  color: var(--light);
+  text-align: center;
+  padding: 1.75rem 1.25rem;
+}
+
+/* Row of social media icon links */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1.5px solid var(--gold);
+  transition: background 0.2s, transform 0.2s;
+}
+
+/* On hover the circle fills gold and the icon turns navy */
+.social-links a:hover {
+  background: var(--gold);
+  transform: translateY(-2px);
+}
+
+.social-links a svg {
+  fill: var(--gold);
+  width: 20px;
+  height: 20px;
+}
+
+.social-links a:hover svg {
+  fill: var(--navy);
+}
+
+.footer-info {
+  font-size: 0.875rem;
+  color: #a0b0c8;
+  margin-bottom: 0.4rem;
+}
+
+#lastModified {
+  font-size: 0.8rem;
+  color: #7090a8;
+}
