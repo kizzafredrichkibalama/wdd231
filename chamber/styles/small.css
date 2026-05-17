@@ -2,21 +2,27 @@
 
 /* Color scheme and reusable values */
 :root {
-  --navy:       #1a2e4a;
-  --gold:       #f0c040;
-  --deep-gold:  #c99a10;
-  --cream:      #f8f4ec;
-  --white:      #ffffff;
-  --light:      #eef2f7;
-  --slate:      #4a5568;
-  --dark-nav:   #0d1a2e;
-  --done-bg:    #1a4a2e;
-  --done-text:  #a8f0c0;
-  --shadow:     0 2px 12px rgba(26,46,74,0.13);
-  --radius:     8px;
-  --gold-badge: #c99a10;
-  --silver-bg:  #7a8a9a;
-  --member-bg:  #4a5568;
+  --navy:           #1a2e4a;
+  --gold:           #f0c040;
+  --deep-gold:      #c99a10;
+  --cream:          #f8f4ec;
+  --white:          #ffffff;
+  --light:          #eef2f7;
+  --slate:          #4a5568;
+  --dark-nav:       #0d1a2e;
+  --done-bg:        #1a4a2e;
+  --done-text:      #a8f0c0;
+  --gold-badge:     #c99a10;
+  --silver-bg:      #7a8a9a;
+  --member-bg:      #4a5568;
+  --shadow:         0 2px 12px rgba(26,46,74,0.13);
+  --gold-faint:     var(--gold-faint);
+  --gold-hover:     var(--gold-hover);
+  --gold-light:     var(--gold-light);
+  --gold-subtle:    var(--gold-subtle);
+  --radius:         8px;
+  --text-light:     var(--text-light);
+  --text-muted:     var(--text-muted);
 }
 
 /* Base styles */
@@ -86,7 +92,7 @@ header {
 }
 
 #menu-btn:hover, #menu-btn:focus {
-  background: rgba(240,192,64,0.15);
+  background: var(--gold-hover);
   outline: none;
 }
 
@@ -107,7 +113,7 @@ header {
 nav {
   background: var(--navy);
   color: var(--light);
-  border-top: 1px solid rgba(240,192,64,0.2);
+  border-top: 1px solid var(--gold-faint);
   display: none;
 }
 
@@ -363,7 +369,7 @@ footer {
 
 .footer-contact p {
   font-size: 0.875rem;
-  color: #a0b0c8;
+  color: var(--text-light);
   line-height: 1.8;
 }
 
@@ -402,12 +408,11 @@ footer {
 /* Footer dev info */
 .footer-dev {
   font-size: 0.825rem;
-  color: #a0b0c8;
+  color: var(--text-light);
   line-height: 1.9;
 }
 
 .footer-dev p span { color: var(--gold); }
 
 #footer-year  { color: var(--gold); }
-#lastModified { font-size: 0.78rem; color: #7090a8; margin-top: 0.25rem; }
-a
+#lastModified { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.25rem; }
