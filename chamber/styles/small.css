@@ -2,27 +2,27 @@
 
 /* Color scheme and reusable values */
 :root {
-  --navy:           #1a2e4a;
-  --gold:           #f0c040;
-  --deep-gold:      #c99a10;
-  --cream:          #f8f4ec;
-  --white:          #ffffff;
-  --light:          #eef2f7;
-  --slate:          #4a5568;
-  --dark-nav:       #0d1a2e;
-  --done-bg:        #1a4a2e;
-  --done-text:      #a8f0c0;
-  --gold-badge:     #c99a10;
-  --silver-bg:      #7a8a9a;
-  --member-bg:      #4a5568;
-  --shadow:         0 2px 12px rgba(26,46,74,0.13);
-  --gold-faint:     var(--gold-faint);
-  --gold-hover:     var(--gold-hover);
-  --gold-light:     var(--gold-light);
-  --gold-subtle:    var(--gold-subtle);
-  --radius:         8px;
-  --text-light:     var(--text-light);
-  --text-muted:     var(--text-muted);
+  --navy:        #1a2e4a;
+  --gold:        #f0c040;
+  --deep-gold:   #c99a10;
+  --cream:       #f8f4ec;
+  --white:       #ffffff;
+  --light:       #eef2f7;
+  --slate:       #4a5568;
+  --dark-nav:    #0d1a2e;
+  --done-bg:     #1a4a2e;
+  --done-text:   #a8f0c0;
+  --gold-badge:  #c99a10;
+  --silver-bg:   #7a8a9a;
+  --member-bg:   #4a5568;
+  --text-light:  #a0b0c8;
+  --text-muted:  #7090a8;
+  --shadow:      0 2px 12px #1a2e4a26;
+  --shadow-hover:0 6px 20px #1a2e4a2e;
+  --header-shadow: 0 2px 8px #0000004d;
+  --gold-faint:  #f0c04033;
+  --gold-hover:  #f0c04026;
+  --radius:      8px;
 }
 
 /* Base styles */
@@ -53,7 +53,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  box-shadow: var(--header-shadow);
 }
 
 .site-identity {
@@ -231,7 +231,7 @@ main h1 {
 
 .member-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(26,46,74,0.18);
+  box-shadow: var(--shadow-hover);
 }
 
 .member-card .card-img {
@@ -343,6 +343,13 @@ main h1 {
 
 #members-container.list-view .card-detail {
   font-size: 0.82rem;
+}
+
+/* Error message shown if JSON fails to load */
+.load-error {
+  color: #c0392b;
+  padding: 1rem;
+  font-weight: 600;
 }
 
 /* Footer */

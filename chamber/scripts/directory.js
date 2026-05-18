@@ -61,7 +61,7 @@ async function loadMembers() {
       container.appendChild(buildCard(member));
     });
   } catch (error) {
-    container.innerHTML = `<p style="color:red">Could not load member data: ${error.message}</p>`;
+    container.innerHTML = `<p class="load-error">Could not load member data: ${error.message}</p>`;
     console.error('Member load error:', error);
   }
 }
