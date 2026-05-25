@@ -1,10 +1,10 @@
 // weather.js
 // Fetches current weather and 3-day forecast for Kampala, Uganda
 // from the OpenWeatherMap API.
-//
 
 
-const API_KEY = '5e5589389aa7fb47ce206b19494eedec';
+
+const API_KEY = 'bd2d1e2f43825b995d228940e01fb671';
 const LAT     = 0.3476;
 const LON     = 32.5825;
 const UNITS   = 'metric';
@@ -116,7 +116,7 @@ function showWeatherError(msg) {
 
 // Main entry point
 async function loadWeather() {
-  if (API_KEY === '5e5589389aa7fb47ce206b19494eedec') {
+  if (API_KEY === 'bd2d1e2f43825b995d228940e01fb671') {
     showWeatherError('Add your OpenWeatherMap API key to scripts/weather.js to enable live weather.');
     return;
   }
