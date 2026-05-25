@@ -1,13 +1,8 @@
-// weather.js
-// Fetches current weather and 8-day forecast for Kampala, Uganda
-// using OpenWeatherMap One Call API 3.0
-
+// weather.js - Kampala weather using OpenWeatherMap free tier API
 const API_KEY = 'bd2d1e2f43825b995d228940e01fb671';
-const LAT     = 0.3476;   // Kampala latitude
-const LON     = 32.5825;  // Kampala longitude
-const UNITS   = 'metric'; // Celsius
-
-const BASE    = 'https://api.openweathermap.org/data/3.0/onecall';
+const LAT     = 0.3476;
+const LON     = 32.5825;
+const UNITS   = 'metric';
 
 // DOM elements
 const tempEl        = document.getElementById('weather-temp');
@@ -16,112 +11,108 @@ const iconEl        = document.getElementById('weather-icon');
 const humidityEl    = document.getElementById('weather-humidity');
 const forecastEl    = document.getElementById('weather-forecast');
 
-// Day name helper
-function dayName(dateStr) {
-  const date = new Date(dateStr);
-  return date.toLocaleDateString('en-UG', { weekday: 'short' }).slice(0, 3);
-}
+console.log('Weather script loaded. Elements found:', {
+  temp: !!tempEl,
+  desc: !!descEl,
+  icon: !!iconEl,
+  humidity: !!humidityEl,
+  forecast: !!forecastEl
+});
 
-// Fetch everything in one call from One Call API 3.0
-async function fetchWeatherData() {
-  const url = `${BASE}?lat=${LAT}&lon=${LON}&appid=${API_KEY}&units=${UNITS}`;
-  const res = await fetch(url);
-  
-  if (!res.ok) {
-    const errorCode = res.status;
-    if (errorCode === 401) {
-      throw new Error('Invalid API key');
-    } else if (errorCode === 429) {
-      throw new Error('API rate limit exceeded');
-    } else {
-      throw new Error(`Weather API error: ${errorCode}`);
-    }
-  }
-  
-  return res.json();
-}
-
-// Render current weather
-function renderCurrent(data) {
-  const temp    = Math.round(data.current.temp);
-  const desc    = data.current.weather[0].description;
-  const icon    = data.current.weather[0].icon;
-  const humidity = data.current.humidity;
-
-  if (tempEl)     tempEl.textContent     = `${temp}°C`;
-  if (descEl)     descEl.textContent     = desc.charAt(0).toUpperCase() + desc.slice(1);
-  if (humidityEl) humidityEl.textContent = `Humidity: ${humidity}%`;
-  if (iconEl) {
-    iconEl.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
-    iconEl.alt = desc;
-  }
-}
-
-// Render 3-day forecast
-function renderForecast(data) {
-  if (!forecastEl) return;
-  
-  // Create forecast cards container if it doesn't exist
-  let container = forecastEl.querySelector('.forecast-cards');
-  if (!container) {
-    container = document.createElement('div');
-    container.className = 'forecast-cards';
-    forecastEl.appendChild(container);
-  }
-  container.innerHTML = '';
-  
-  // Take the next 3 days from the daily forecast
-  data.daily.slice(1, 4).forEach(day => {
-    const high = Math.round(day.temp.max);
-    const low  = Math.round(day.temp.min);
-    const date = new Date(day.dt * 1000); // Convert Unix timestamp to JS date
-    const name = dayName(date.toISOString());
-    const icon = day.weather[0].icon;
-    const desc = day.weather[0].description;
-
-    const card = document.createElement('div');
-    card.classList.add('forecast-day');
-    card.innerHTML = `
-      <p class="forecast-name">${name}</p>
-      <img src="https://openweathermap.org/img/wn/${icon}.png" alt="${desc}" width="40" height="40" loading="lazy">
-      <p class="forecast-temp"><strong>${high}°</strong> / ${low}°</p>
-    `;
-    container.appendChild(card);
-  });
-}
-
-// Show error message
-function showWeatherError(msg) {
-  const section = document.getElementById('weather-section');
-  if (section) {
-    section.innerHTML = `
-      <h2>Current Weather</h2>
-      <p class="weather-error">${msg}</p>
-    `;
-  }
-}
-
-// Main function
-async function loadWeather() {
+async function getWeather() {
   try {
-    const data = await fetchWeatherData();
-    renderCurrent(data);
-    renderForecast(data);
-  } catch (err) {
-    console.error('Weather load failed:', err);
-    if (err.message.includes('Invalid API key')) {
-      showWeatherError('Invalid API key. Please check your OpenWeatherMap key.');
-    } else if (err.message.includes('rate limit')) {
-      showWeatherError('API rate limit reached. Try again in a moment.');
-    } else {
-      showWeatherError('Weather data could not be loaded. Please try again later.');
+    console.log('Fetching weather for Kampala...');
+    
+    // Fetch current weather
+    const currentUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${LAT}&lon=${LON}&units=${UNITS}&appid=${API_KEY}`;
+    console.log('Current weather URL:', currentUrl);
+    
+    const currentRes = await fetch(currentUrl);
+    if (!currentRes.ok) throw new Error(`Current weather failed: ${currentRes.status}`);
+    const current = await currentRes.json();
+    console.log('Current weather data:', current);
+    
+    // Fetch forecast
+    const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${LAT}&lon=${LON}&units=${UNITS}&appid=${API_KEY}`;
+    console.log('Forecast URL:', forecastUrl);
+    
+    const forecastRes = await fetch(forecastUrl);
+    if (!forecastRes.ok) throw new Error(`Forecast failed: ${forecastRes.status}`);
+    const forecast = await forecastRes.json();
+    console.log('Forecast data:', forecast);
+    
+    // Render current
+    if (tempEl) tempEl.textContent = Math.round(current.main.temp) + '°C';
+    if (descEl) descEl.textContent = current.weather[0].description;
+    if (humidityEl) humidityEl.textContent = 'Humidity: ' + current.main.humidity + '%';
+    if (iconEl) {
+      iconEl.src = `https://openweathermap.org/img/wn/${current.weather[0].icon}@2x.png`;
+      iconEl.alt = current.weather[0].description;
+    }
+    console.log('Rendered current weather');
+    
+    // Render forecast - get next 3 days (one per day at 12:00)
+    if (forecastEl) {
+      let container = forecastEl.querySelector('.forecast-cards');
+      if (!container) {
+        container = document.createElement('div');
+        container.className = 'forecast-cards';
+        forecastEl.appendChild(container);
+      }
+      container.innerHTML = '';
+      
+      // Group by date and get midday reading
+      const byDate = {};
+      forecast.list.forEach(item => {
+        const date = item.dt_txt.split(' ')[0];
+        const time = item.dt_txt.split(' ')[1];
+        if (!byDate[date] || time === '12:00:00') {
+          byDate[date] = item;
+        }
+      });
+      
+      // Skip today, get next 3 days
+      const today = new Date().toISOString().split('T')[0];
+      const upcomingDays = Object.entries(byDate)
+        .filter(([date]) => date > today)
+        .slice(0, 3);
+      
+      console.log('Forecast days to render:', upcomingDays.length);
+      
+      upcomingDays.forEach(([date, item]) => {
+        const dayName = new Date(date).toLocaleDateString('en-UG', { weekday: 'short' });
+        const card = document.createElement('div');
+        card.className = 'forecast-day';
+        card.innerHTML = `
+          <p class="forecast-name">${dayName}</p>
+          <img src="https://openweathermap.org/img/wn/${item.weather[0].icon}.png" alt="${item.weather[0].description}" width="40" height="40" loading="lazy">
+          <p class="forecast-temp"><strong>${Math.round(item.main.temp_max)}°</strong> / ${Math.round(item.main.temp_min)}°</p>
+        `;
+        container.appendChild(card);
+      });
+      console.log('Rendered forecast cards');
+    }
+    
+  } catch (error) {
+    console.error('WEATHER ERROR:', error);
+    const section = document.getElementById('weather-section');
+    if (section) {
+      section.innerHTML = `
+        <h2>Current Weather</h2>
+        <p class="weather-error">Error: ${error.message}</p>
+      `;
     }
   }
 }
 
-// Load when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', loadWeather);
-} else {
-  loadWeather();
+// Run when page loads
+window.addEventListener('load', () => {
+  console.log('Page loaded, fetching weather...');
+  getWeather();
+});
+
+// Also try immediately in case load fires before script
+if (document.readyState === 'complete') {
+  console.log('Page already loaded, fetching weather...');
+  getWeather();
 }
