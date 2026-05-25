@@ -1,15 +1,13 @@
 // weather.js
-// Fetches current weather and 3-day forecast for Kampala, Uganda
-// from the OpenWeatherMap API.
-
-
+// Fetches current weather and 8-day forecast for Kampala, Uganda
+// using OpenWeatherMap One Call API 3.0
 
 const API_KEY = 'bd2d1e2f43825b995d228940e01fb671';
-const LAT     = 0.3476;
-const LON     = 32.5825;
-const UNITS   = 'metric';
+const LAT     = 0.3476;   // Kampala latitude
+const LON     = 32.5825;  // Kampala longitude
+const UNITS   = 'metric'; // Celsius
 
-const BASE    = 'https://api.openweathermap.org/data/2.5';
+const BASE    = 'https://api.openweathermap.org/data/3.0/onecall';
 
 // DOM elements
 const tempEl        = document.getElementById('weather-temp');
@@ -21,48 +19,34 @@ const forecastEl    = document.getElementById('weather-forecast');
 // Day name helper
 function dayName(dateStr) {
   const date = new Date(dateStr);
-  return date.toLocaleDateString('en-UG', { weekday: 'long' });
+  return date.toLocaleDateString('en-UG', { weekday: 'short' }).slice(0, 3);
 }
 
-// Fetch current weather
-async function fetchCurrentWeather() {
-  const url = `${BASE}/weather?lat=${LAT}&lon=${LON}&appid=${API_KEY}&units=${UNITS}`;
-  const res  = await fetch(url);
-  if (!res.ok) throw new Error(`Weather API error: ${res.status}`);
+// Fetch everything in one call from One Call API 3.0
+async function fetchWeatherData() {
+  const url = `${BASE}?lat=${LAT}&lon=${LON}&appid=${API_KEY}&units=${UNITS}`;
+  const res = await fetch(url);
+  
+  if (!res.ok) {
+    const errorCode = res.status;
+    if (errorCode === 401) {
+      throw new Error('Invalid API key');
+    } else if (errorCode === 429) {
+      throw new Error('API rate limit exceeded');
+    } else {
+      throw new Error(`Weather API error: ${errorCode}`);
+    }
+  }
+  
   return res.json();
 }
 
-// Fetch 5-day / 3-hour forecast, then pick one reading per day
-async function fetchForecast() {
-  const url = `${BASE}/forecast?lat=${LAT}&lon=${LON}&appid=${API_KEY}&units=${UNITS}`;
-  const res  = await fetch(url);
-  if (!res.ok) throw new Error(`Forecast API error: ${res.status}`);
-  const data = await res.json();
-
-  // Group by calendar date and take the midday (12:00) reading
-  const days = {};
-  data.list.forEach(item => {
-    const date = item.dt_txt.split(' ')[0];
-    const time = item.dt_txt.split(' ')[1];
-    if (!days[date] || time === '12:00:00') {
-      days[date] = item;
-    }
-  });
-
-  // Skip today, return next 3 days
-  const today = new Date().toISOString().split('T')[0];
-  return Object.entries(days)
-    .filter(([date]) => date > today)
-    .slice(0, 3)
-    .map(([, item]) => item);
-}
-
-// Render current weather into the page
+// Render current weather
 function renderCurrent(data) {
-  const temp    = Math.round(data.main.temp);
-  const desc    = data.weather[0].description;
-  const icon    = data.weather[0].icon;
-  const humidity = data.main.humidity;
+  const temp    = Math.round(data.current.temp);
+  const desc    = data.current.weather[0].description;
+  const icon    = data.current.weather[0].icon;
+  const humidity = data.current.humidity;
 
   if (tempEl)     tempEl.textContent     = `${temp}°C`;
   if (descEl)     descEl.textContent     = desc.charAt(0).toUpperCase() + desc.slice(1);
@@ -73,10 +57,11 @@ function renderCurrent(data) {
   }
 }
 
-// Render 3-day forecast into the page
-function renderForecast(days) {
+// Render 3-day forecast
+function renderForecast(data) {
   if (!forecastEl) return;
-  // Find or create a container div inside the section for forecast cards
+  
+  // Create forecast cards container if it doesn't exist
   let container = forecastEl.querySelector('.forecast-cards');
   if (!container) {
     container = document.createElement('div');
@@ -85,10 +70,12 @@ function renderForecast(days) {
   }
   container.innerHTML = '';
   
-  days.forEach(day => {
-    const high = Math.round(day.main.temp_max);
-    const low  = Math.round(day.main.temp_min);
-    const name = dayName(day.dt_txt);
+  // Take the next 3 days from the daily forecast
+  data.daily.slice(1, 4).forEach(day => {
+    const high = Math.round(day.temp.max);
+    const low  = Math.round(day.temp.min);
+    const date = new Date(day.dt * 1000); // Convert Unix timestamp to JS date
+    const name = dayName(date.toISOString());
     const icon = day.weather[0].icon;
     const desc = day.weather[0].description;
 
@@ -96,14 +83,14 @@ function renderForecast(days) {
     card.classList.add('forecast-day');
     card.innerHTML = `
       <p class="forecast-name">${name}</p>
-      <img src="https://openweathermap.org/img/wn/${icon}.png" alt="${desc}" width="40" height="40">
+      <img src="https://openweathermap.org/img/wn/${icon}.png" alt="${desc}" width="40" height="40" loading="lazy">
       <p class="forecast-temp"><strong>${high}°</strong> / ${low}°</p>
     `;
     container.appendChild(card);
   });
 }
 
-// Show a friendly error if API key is missing or request fails
+// Show error message
 function showWeatherError(msg) {
   const section = document.getElementById('weather-section');
   if (section) {
@@ -114,23 +101,27 @@ function showWeatherError(msg) {
   }
 }
 
-// Main entry point
+// Main function
 async function loadWeather() {
-  if (API_KEY === 'bd2d1e2f43825b995d228940e01fb671') {
-    showWeatherError('Add your OpenWeatherMap API key to scripts/weather.js to enable live weather.');
-    return;
-  }
   try {
-    const [current, forecast] = await Promise.all([
-      fetchCurrentWeather(),
-      fetchForecast()
-    ]);
-    renderCurrent(current);
-    renderForecast(forecast);
+    const data = await fetchWeatherData();
+    renderCurrent(data);
+    renderForecast(data);
   } catch (err) {
     console.error('Weather load failed:', err);
-    showWeatherError('Weather data could not be loaded. Check your API key and connection.');
+    if (err.message.includes('Invalid API key')) {
+      showWeatherError('Invalid API key. Please check your OpenWeatherMap key.');
+    } else if (err.message.includes('rate limit')) {
+      showWeatherError('API rate limit reached. Try again in a moment.');
+    } else {
+      showWeatherError('Weather data could not be loaded. Please try again later.');
+    }
   }
 }
 
-loadWeather();
+// Load when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', loadWeather);
+} else {
+  loadWeather();
+}
