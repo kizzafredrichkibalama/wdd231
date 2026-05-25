@@ -1,6 +1,10 @@
+// weather.js
+// Fetches current weather and 3-day forecast for Kampala, Uganda
+// from the OpenWeatherMap API.
+//
 
 
-const API_KEY = '5e5589389aa7fb47ce206b19494eedec1';
+const API_KEY = '5e5589389aa7fb47ce206b19494eedec';
 const LAT     = 0.3476;
 const LON     = 32.5825;
 const UNITS   = 'metric';
@@ -72,7 +76,15 @@ function renderCurrent(data) {
 // Render 3-day forecast into the page
 function renderForecast(days) {
   if (!forecastEl) return;
-  forecastEl.innerHTML = '';
+  // Find or create a container div inside the section for forecast cards
+  let container = forecastEl.querySelector('.forecast-cards');
+  if (!container) {
+    container = document.createElement('div');
+    container.className = 'forecast-cards';
+    forecastEl.appendChild(container);
+  }
+  container.innerHTML = '';
+  
   days.forEach(day => {
     const high = Math.round(day.main.temp_max);
     const low  = Math.round(day.main.temp_min);
@@ -87,7 +99,7 @@ function renderForecast(days) {
       <img src="https://openweathermap.org/img/wn/${icon}.png" alt="${desc}" width="40" height="40">
       <p class="forecast-temp"><strong>${high}°</strong> / ${low}°</p>
     `;
-    forecastEl.appendChild(card);
+    container.appendChild(card);
   });
 }
 
@@ -104,7 +116,7 @@ function showWeatherError(msg) {
 
 // Main entry point
 async function loadWeather() {
-  if (API_KEY === 'YOUR_API_KEY_HERE') {
+  if (API_KEY === '5e5589389aa7fb47ce206b19494eedec') {
     showWeatherError('Add your OpenWeatherMap API key to scripts/weather.js to enable live weather.');
     return;
   }

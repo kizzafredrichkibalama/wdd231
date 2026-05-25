@@ -623,11 +623,14 @@ footer {
 }
 
 #weather-forecast {
+  border-top: 1px solid var(--light);
+  padding-top: 0.85rem;
+}
+
+.forecast-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.5rem;
-  border-top: 1px solid var(--light);
-  padding-top: 0.85rem;
 }
 
 .forecast-day {
