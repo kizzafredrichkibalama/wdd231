@@ -1,11 +1,4 @@
-// weather.js
-// Fetches current weather and 3-day forecast for Kampala, Uganda
-// from the OpenWeatherMap API.
-//
-// HOW TO SET UP:
-// 1. Go to https://openweathermap.org/api and create a free account.
-// 2. Generate a free API key from your account dashboard.
-// 3. Replace the value of API_KEY below with your actual key.
+
 
 const API_KEY = 'bd2d1e2f43825b995d228940e01fb671';
 const LAT     = 0.3476;
