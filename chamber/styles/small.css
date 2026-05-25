@@ -18,6 +18,7 @@
   --text-light:    #a0b0c8;
   --text-muted:    #7090a8;
   --error-color:   #c0392b;
+  --hero-dark:     #0a1a2e;
   --shadow:        0 2px 12px #1a2e4a26;
   --shadow-hover:  0 6px 20px #1a2e4a2e;
   --header-shadow: 0 2px 8px #0000004d;
@@ -446,7 +447,7 @@ footer {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(10, 26, 46, 0.9) 40%, rgba(10, 26, 46, 0.65) 100%);
+  background: linear-gradient(to top, color-mix(in srgb, var(--hero-dark) 80%, transparent) 40%, color-mix(in srgb, var(--hero-dark) 27%, transparent) 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -659,21 +660,10 @@ footer {
 }
 
 .weather-error {
-  color: var(--error-color);
-  padding: 0.5rem 0;
+  color: var(--slate);
   font-size: 0.875rem;
   font-style: italic;
-}
-
-#weather-section h2 {
-  color: var(--gold);
-  background: var(--navy);
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem;
-  padding: 0.65rem 1.1rem;
-  letter-spacing: 0.04em;
-  border-radius: var(--radius);
-  margin: 0;
+  padding: 0.5rem 0;
 }
 
 /* Spotlight section */
