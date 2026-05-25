@@ -7,7 +7,7 @@
 // 2. Generate a free API key from your account dashboard.
 // 3. Replace the value of API_KEY below with your actual key.
 
-const API_KEY = 'YOUR_API_KEY_HERE';
+const API_KEY = 'bd2d1e2f43825b995d228940e01fb671';
 const LAT     = 0.3476;
 const LON     = 32.5825;
 const UNITS   = 'metric';
@@ -111,7 +111,7 @@ function showWeatherError(msg) {
 
 // Main entry point
 async function loadWeather() {
-  if (API_KEY === 'YOUR_API_KEY_HERE') {
+  if (API_KEY === 'bd2d1e2f43825b995d228940e01fb671') {
     showWeatherError('Add your OpenWeatherMap API key to scripts/weather.js to enable live weather.');
     return;
   }

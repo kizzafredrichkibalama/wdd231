@@ -73,26 +73,27 @@
     >
     <div class="hero-overlay">
       <h2>Connecting Kampala's Businesses</h2>
-      <p>Join the network that powers Uganda's capital networking, resources, and growth for every member.</p>
+      <p>Join the network that powers Uganda's capital — networking, resources, and growth for every member.</p>
       <a href="join.html" class="cta-btn">Join the Chamber Today</a>
     </div>
   </section>
 
   <!-- Main content grid: Events | Weather | Spotlights -->
   <main>
+    <h1 class="visually-hidden">Home</h1>
     <div class="home-grid">
 
       <!-- Current Events -->
       <section class="home-panel events-section" aria-labelledby="events-heading">
         <h2 id="events-heading">Upcoming Events</h2>
         <div class="panel-body">
-          <ul class="events-list" role="list">
+          <ul class="events-list">
 
             <li class="event-item">
-              <div class="event-date" aria-label="June 5">
+              <time class="event-date" datetime="2026-06-05">
                 <span class="month">Jun</span>
                 <span class="day">5</span>
-              </div>
+              </time>
               <div class="event-info">
                 <h3>Business Networking Breakfast</h3>
                 <p>Serena Hotel, Kampala — 7:30 AM<br>Meet fellow chamber members over breakfast. All members welcome.</p>
@@ -100,10 +101,10 @@
             </li>
 
             <li class="event-item">
-              <div class="event-date" aria-label="June 12">
+              <time class="event-date" datetime="2026-06-12">
                 <span class="month">Jun</span>
                 <span class="day">12</span>
-              </div>
+              </time>
               <div class="event-info">
                 <h3>Digital Business Workshop</h3>
                 <p>Kampala Tech Hub — 9:00 AM<br>Learn how to grow your business with digital tools and social media.</p>
@@ -111,10 +112,10 @@
             </li>
 
             <li class="event-item">
-              <div class="event-date" aria-label="June 20">
+              <time class="event-date" datetime="2026-06-20">
                 <span class="month">Jun</span>
                 <span class="day">20</span>
-              </div>
+              </time>
               <div class="event-info">
                 <h3>Annual Trade Expo 2026</h3>
                 <p>Lugogo Show Grounds — 8:00 AM<br>Exhibit your products and connect with buyers from across East Africa.</p>
@@ -130,14 +131,16 @@
         <h2 id="weather-heading">Current Weather — Kampala</h2>
         <div class="panel-body">
           <div class="weather-current">
-            <img id="weather-icon" src="" alt="Weather icon" width="60" height="60">
+            <img id="weather-icon" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Weather icon" width="60" height="60">
             <div class="weather-info">
               <p class="weather-temp-big" id="weather-temp">--°C</p>
               <p id="weather-desc">Loading…</p>
               <p id="weather-humidity"></p>
             </div>
           </div>
-          <div id="weather-forecast" aria-label="Three day forecast"></div>
+          <section id="weather-forecast" aria-labelledby="forecast-heading">
+            <h3 id="forecast-heading" class="visually-hidden">Three Day Forecast</h3>
+          </section>
         </div>
       </section>
 
