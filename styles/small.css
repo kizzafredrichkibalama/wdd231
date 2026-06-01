@@ -65,14 +65,10 @@ header {
   box-shadow: var(--header-shadow);
 }
 
-/* ... (all your existing code remains unchanged above this point) ... */
 
-/* Membership price FIXED for accessibility */
 .membership-price {
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--deep-gold); /* FIX: improved contrast from 1.70:1 → WCAG compliant */
+  color: var(--deep-gold);
   margin: 0.5rem 0;
 }
-
-/* ... (rest of your CSS remains unchanged) ... */
