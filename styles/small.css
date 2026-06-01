@@ -34,10 +34,17 @@
   --radius:             8px;
 }
 
-/* Base styles */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* Base reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-html { font-size: 16px; scroll-behavior: smooth; }
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: 'Source Sans 3', sans-serif;
@@ -47,28 +54,60 @@ body {
   min-width: 320px;
 }
 
-img { max-width: 100%; height: auto; display: block; }
-a   { color: var(--navy); }
-ul  { list-style: none; padding: 0; margin: 0; }
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
-/* Header */
+a {
+  color: var(--navy);
+}
+
+/* ================= HEADER ================= */
 header {
   background: var(--navy);
   color: var(--white);
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   padding: 0.75rem 1.25rem;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: var(--header-shadow);
 }
 
+/* ================= NAV ================= */
+nav {
+  display: none;
+  background: var(--navy);
+}
 
+nav.open {
+  display: block;
+}
+
+/* ================= MEMBERSHIP PRICE FIX ================= */
+/* FIX: stronger selector to override ANY conflicting rule */
+p.membership-price,
 .membership-price {
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--deep-gold);
+  color: var(--deep-gold) !important; /* ensures override of gold */
   margin: 0.5rem 0;
+}
+
+/* ================= CARDS ================= */
+.member-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background: var(--navy);
+  color: var(--light);
+  padding: 2rem 1.25rem;
 }
