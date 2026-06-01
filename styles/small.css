@@ -1153,3 +1153,6 @@ form input[type="hidden"] {
   background: var(--deep-gold);
   transform: translateY(-2px);
 }
+p.membership-price{
+  color: var(--navy)!important;
+}
