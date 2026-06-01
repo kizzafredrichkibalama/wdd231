@@ -1,93 +1,147 @@
-/* larger.css - desktop and tablet overrides (640px and up) */
+/* larger.css - tablet and desktop overrides (640px+) */
 
-/* On larger screens the layout switches from stacked to side-by-side */
 @media (min-width: 640px) {
 
-  header {
-    padding: 0.75rem 2rem;
-  }
+  /* Hide hamburger, show horizontal nav */
+  #menu-btn { display: none; }
 
-  /* Hide the hamburger button on desktop */
-  #menu-btn {
-    display: none;
-  }
-
-  /* Show the nav permanently on desktop without needing the hamburger */
   nav {
     display: block;
     border-top: none;
-    background: var(--navy);
   }
 
-  /* Nav links run horizontally across the top on desktop */
   nav ul {
     display: flex;
     flex-direction: row;
-    list-style: none;
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 2rem;
   }
 
   nav ul li a {
-    padding: 0.7rem 1.2rem;
+    padding: 0.65rem 1.1rem;
     border-left: none;
-    border-bottom: 3px solid transparent;
-    font-size: 0.95rem;
+    border-bottom: 3px solid var(--navy);
+    font-size: 0.9rem;
   }
 
-  /* On desktop the active indicator is a gold underline on a darker navy background */
   nav ul li a:hover,
   nav ul li a:focus {
-    border-left-color: transparent;
+    border-left-color: var(--navy);
     border-bottom-color: var(--gold);
-    background: #0d1a2e;
+    background: var(--dark-nav);
   }
 
   nav ul li a[aria-current="page"] {
-    border-left-color: transparent;
+    border-left-color: var(--navy);
     border-bottom-color: var(--gold);
-    background: #0d1a2e;
+    background: var(--dark-nav);
   }
 
-  main {
+  header { padding: 0.75rem 2rem; }
+  main   { padding: 2rem 2rem 3rem; }
+
+  /* Three-column member grid on tablet */
+  #members-container { grid-template-columns: repeat(3, 1fr); }
+
+  /* Footer becomes a three-column row */
+  .footer-grid {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 2rem;
+  }
+
+  .footer-contact { flex: 1; }
+  .footer-social-wrap { flex: 0 0 auto; align-self: center; }
+  .footer-dev { flex: 1; text-align: right; }
+}
+
+@media (min-width: 900px) {
+  /* Four columns on wide screens */
+  #members-container { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ===== HOME PAGE - DESKTOP OVERRIDES ===== */
+@media (min-width: 640px) {
+
+  .hero-img       { height: 420px; }
+  .hero           { min-height: 420px; }
+  .hero-overlay   { padding: 2.5rem 2rem; }
+  .hero-overlay h2 { font-size: 2.2rem; }
+
+  /* Two-column layout: events+weather on left, spotlights on right */
+  .home-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
     padding: 2rem 2rem 3rem;
-  }
-
-  main h1 {
-    font-size: 2.4rem;
-  }
-
-  /* About Me and Student Photo sit side by side in a two-column grid */
-  .top-sections {
-    display: grid;
-    grid-template-columns: 1fr 320px;
     gap: 1.5rem;
-    margin-bottom: 1.75rem;
   }
 
-  .top-sections section {
-    margin-bottom: 0;
+  .events-section   { grid-column: 1; grid-row: 1; }
+  .weather-section  { grid-column: 1; grid-row: 2; }
+  .spotlights-section {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    display: flex;
+    flex-direction: column;
   }
 
-  /* Three course cards per row on tablet */
-  .course-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .spotlights-section #spotlights-container {
+    flex: 1;
+    border-radius: 0 0 var(--radius) var(--radius);
   }
 
-  .course-filters {
-    flex-wrap: nowrap;
-  }
+  .spotlight-card { flex-direction: column; }
 
-  .filter-btn {
-    flex: unset;
-    min-width: 100px;
+  #spotlights-container {
+    grid-template-columns: 1fr;
   }
 }
 
-/* Four course cards per row on wide desktop screens */
 @media (min-width: 900px) {
-  .course-grid {
-    grid-template-columns: repeat(4, 1fr);
+  /* Three-column home grid on wide screens */
+  .home-grid {
+    grid-template-columns: 1.1fr 1fr 1.1fr;
+    grid-template-rows: auto;
+  }
+
+  .events-section     { grid-column: 1; grid-row: 1; }
+  .weather-section    { grid-column: 2; grid-row: 1; }
+  .spotlights-section { grid-column: 3; grid-row: 1; }
+
+  #spotlights-container { grid-template-columns: 1fr; }
+}
+
+/* ===== JOIN PAGE - DESKTOP ===== */
+@media (min-width: 768px) {
+  
+  .join-container {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2rem;
+  }
+  
+  .membership-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-card dl {
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem;
+  }
+
+  .detail-card dt {
+    text-align: left;
+  }
+}
+
+@media (min-width: 900px) {
+  
+  .join-container {
+    grid-template-columns: 1.5fr 1fr;
+  }
+
+  .membership-cards {
+    grid-template-columns: 1fr;
   }
 }
