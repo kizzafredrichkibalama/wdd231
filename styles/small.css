@@ -1017,7 +1017,7 @@ form input[type="hidden"] {
   content: "✓";
   position: absolute;
   left: 0;
-  color: var(--gold);
+  color: var(--navy);
   font-weight: 700;
   font-size: 1.1rem;
 }
@@ -1131,7 +1131,8 @@ form input[type="hidden"] {
 }
 
 .thankyou-next a:hover {
-  color: var(--gold);
+  color: var(--dark-nav);
+  text-decoration: none;
 }
 
 .return-home-btn {
