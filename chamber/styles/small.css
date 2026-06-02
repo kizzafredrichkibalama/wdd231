@@ -2,28 +2,38 @@
 
 /* Color scheme and reusable values */
 :root {
-  --navy:          #1a2e4a;
-  --gold:          #f0c040;
-  --deep-gold:     #c99a10;
-  --cream:         #f8f4ec;
-  --white:         #ffffff;
-  --light:         #eef2f7;
-  --slate:         #4a5568;
-  --dark-nav:      #0d1a2e;
-  --done-bg:       #1a4a2e;
-  --done-text:     #a8f0c0;
-  --gold-badge:    #c99a10;
-  --silver-bg:     #7a8a9a;
-  --member-bg:     #4a5568;
-  --text-light:    #a0b0c8;
-  --text-muted:    #7090a8;
-  --error-color:   #c0392b;
-  --shadow:        0 2px 12px #1a2e4a26;
-  --shadow-hover:  0 6px 20px #1a2e4a2e;
-  --header-shadow: 0 2px 8px #0000004d;
-  --gold-faint:    #f0c04033;
-  --gold-hover:    #f0c04026;
-  --radius:        8px;
+  --navy:               #1a2e4a;
+  --gold:               #f0c040;
+  --deep-gold:          #c99a10;
+  --cream:              #f8f4ec;
+  --white:              #ffffff;
+  --light:              #eef2f7;
+  --slate:              #4a5568;
+  --dark-nav:           #0d1a2e;
+  --done-bg:            #1a4a2e;
+  --done-text:          #a8f0c0;
+  --gold-badge:         #c99a10;
+  --silver-bg:          #7a8a9a;
+  --member-bg:          #4a5568;
+  --text-light:         #a0b0c8;
+  --text-muted:         #7090a8;
+  --error-color:        #c0392b;
+  --shadow:             0 2px 12px #1a2e4a26;
+  --shadow-hover:       0 6px 20px #1a2e4a2e;
+  --header-shadow:      0 2px 8px #0000004d;
+  --gold-faint:         #f0c04033;
+  --gold-hover:         #f0c04026;
+  --focus-ring:         0 0 0 3px #f0c04019;
+  --hero-overlay-dark:  #0a1a2ee6;
+  --hero-overlay-mid:   #0a1a2ea6;
+  --hero-text-bg-dark:  #0a1a2ed9;
+  --hero-text-bg-mid:   #0a1a2ecc;
+  --text-shadow-dark:   #00000066;
+  --modal-shadow:       0 10px 40px #0000004d;
+  --modal-backdrop:     #00000080;
+  --input-border:       #dddddd;
+  --input-bg:           #fafafa;
+  --radius:             8px;
 }
 
 /* Base styles */
@@ -129,7 +139,7 @@ nav ul li a {
   text-decoration: none;
   font-weight: 600;
   font-size: 0.95rem;
-  border-left: 3px solid transparent;
+  border-left: 3px solid var(--navy);
   transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
 
@@ -396,7 +406,6 @@ footer {
   height: 40px;
   border-radius: 50%;
   border: 1.5px solid var(--gold);
-  background: transparent;
   transition: background 0.2s, transform 0.2s;
   color: var(--gold);
 }
@@ -446,7 +455,7 @@ footer {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(10, 26, 46, 0.9) 40%, rgba(10, 26, 46, 0.65) 100%);
+  background: linear-gradient(to top, var(--hero-overlay-dark) 40%, var(--hero-overlay-mid) 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -459,8 +468,8 @@ footer {
   color: var(--white);
   font-size: 1.5rem;
   line-height: 1.25;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-  background: rgba(10, 26, 46, 0.85);
+  text-shadow: 0 2px 6px var(--text-shadow-dark);
+  background: var(--hero-text-bg-dark);
   padding: 0.5rem 0;
   margin: 0;
   border-radius: 4px;
@@ -470,7 +479,7 @@ footer {
   color: var(--light);
   font-size: 0.9rem;
   max-width: 480px;
-  background: rgba(10, 26, 46, 0.8);
+  background: var(--hero-text-bg-mid);
   padding: 0.5rem 0;
   border-radius: 4px;
 }
@@ -801,11 +810,11 @@ form textarea {
   width: 100%;
   padding: 0.6rem;
   margin-top: 0.35rem;
-  border: 1px solid #ddd;
+  border: 1px solid var(--input-border);
   border-radius: 4px;
   font-family: 'Source Sans 3', sans-serif;
   font-size: 0.9rem;
-  background: #fafafa;
+  background: var(--input-bg);
   transition: border-color 0.2s, background-color 0.2s;
   box-sizing: border-box;
 }
@@ -816,7 +825,7 @@ form textarea:focus {
   outline: none;
   border-color: var(--gold);
   background: var(--white);
-  box-shadow: 0 0 0 3px rgba(240, 192, 64, 0.1);
+  box-shadow: var(--focus-ring);
 }
 
 form textarea {
@@ -912,7 +921,7 @@ form input[type="hidden"] {
 .membership-price {
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--gold);
+  color: var(--navy);
   margin: 0.5rem 0;
 }
 
@@ -944,13 +953,13 @@ form input[type="hidden"] {
   padding: 0;
   border: none;
   border-radius: var(--radius);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--modal-shadow);
   max-width: 500px;
   width: 90%;
 }
 
 .membership-modal::backdrop {
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--modal-backdrop);
 }
 
 .modal-content {
@@ -1009,7 +1018,7 @@ form input[type="hidden"] {
   content: "✓";
   position: absolute;
   left: 0;
-  color: var(--gold);
+  color: var(--navy);
   font-weight: 700;
   font-size: 1.1rem;
 }
@@ -1123,7 +1132,8 @@ form input[type="hidden"] {
 }
 
 .thankyou-next a:hover {
-  color: var(--gold);
+  color: var(--dark-nav);
+  text-decoration: none;
 }
 
 .return-home-btn {

@@ -1,6 +1,6 @@
 /* small.css - Kampala Chamber of Commerce - mobile first (320px+) */
 
-/* ================= ROOT TOKENS ================= */
+/* Color scheme and reusable values */
 :root {
   --navy: #1a2e4a;
   --gold: #f0c040;
@@ -109,9 +109,9 @@ header {
   line-height: 1.25;
 }
 
-/* ================= MENU BUTTON ================= */
+/* Hamburger button */
 #menu-btn {
-  background: none;
+  background: transparent;
   border: 2px solid var(--gold);
   border-radius: var(--radius);
   padding: 0.35rem 0.5rem;
@@ -119,8 +119,8 @@ header {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  color: var(--gold);
   transition: background 0.2s;
+  color: var(--gold);
 }
 
 #menu-btn:hover,
@@ -172,7 +172,7 @@ nav ul li a {
   color: var(--light);
   font-weight: 600;
   font-size: 0.95rem;
-  border-left: 3px solid var(--navy);
+  border-left: 3px solid transparent;
   transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
 
@@ -213,7 +213,7 @@ main h1 {
   margin-bottom: 1.5rem;
 }
 
-/* ================= SHARED PANELS ================= */
+/* ================= REUSABLE CARDS ================= */
 .card,
 .member-card,
 .spotlight-card,
@@ -229,7 +229,7 @@ main h1 {
   overflow: hidden;
 }
 
-/* Shared section titles */
+/* ================= REUSABLE HEADINGS ================= */
 .section-title,
 .home-panel h2,
 #weather-section h2,
@@ -253,7 +253,8 @@ main h1 {
 .return-home-btn,
 .cta-btn,
 .membership-info-btn,
-.view-btn {
+.view-btn,
+#menu-btn {
   font-family: "Source Sans 3", sans-serif;
 }
 
@@ -423,7 +424,7 @@ main h1 {
   color: var(--white);
 }
 
-/* List view */
+/* List view - one column, no images */
 #members-container.list-view {
   grid-template-columns: 1fr;
   gap: 0.5rem;
@@ -468,11 +469,9 @@ main h1 {
 }
 
 /* ================= PRICE FIX ================= */
-/* Use one rule only. Supports both class names safely. */
+/* One rule only. No duplicates. */
 p.price,
-.price,
-p.membership-price,
-.membership-price {
+.price {
   font-size: 1.3rem;
   font-weight: 700;
   color: var(--navy);
@@ -528,7 +527,7 @@ footer {
   height: 40px;
   border-radius: 50%;
   border: 1.5px solid var(--gold);
-  background: none;
+  background: transparent;
   transition: background 0.2s, transform 0.2s;
   color: var(--gold);
 }
@@ -631,6 +630,10 @@ footer {
   margin: 0 auto;
 }
 
+.home-panel h2 {
+  margin: 0;
+}
+
 .panel-body {
   padding: 1.1rem;
 }
@@ -647,7 +650,7 @@ footer {
   border: 0;
 }
 
-/* Events */
+/* Events section */
 .events-list {
   display: flex;
   flex-direction: column;
@@ -705,7 +708,7 @@ footer {
   line-height: 1.5;
 }
 
-/* Weather */
+/* Weather section */
 .weather-current {
   display: flex;
   align-items: center;
@@ -778,7 +781,7 @@ footer {
   border-radius: var(--radius);
 }
 
-/* Spotlights */
+/* Spotlight section */
 .spotlights-section h2 {
   border-radius: var(--radius) var(--radius) 0 0;
 }
@@ -818,7 +821,7 @@ footer {
 }
 
 .spotlight-body h2 {
-  background: none;
+  background: transparent;
   color: var(--navy);
   font-family: "Playfair Display", serif;
   font-size: 1rem;
@@ -881,9 +884,9 @@ form textarea {
   font-family: "Source Sans 3", sans-serif;
   font-size: 0.9rem;
   background: var(--input-bg);
-  color: var(--navy);
   transition: border-color 0.2s, background-color 0.2s;
   box-sizing: border-box;
+  color: var(--navy);
 }
 
 form input:focus,
@@ -909,9 +912,10 @@ form input[type="hidden"] {
   padding: 0.75rem 2rem;
   width: 100%;
   letter-spacing: 0.04em;
+  font-family: "Source Sans 3", sans-serif;
 }
 
-/* Membership cards */
+/* Membership cards section */
 .membership-cards-section {
   padding: 1.5rem;
 }
@@ -938,21 +942,10 @@ form input[type="hidden"] {
   transform: translateY(20px);
 }
 
-.membership-card:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.membership-card:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.membership-card:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-.membership-card:nth-child(4) {
-  animation-delay: 0.4s;
-}
+.membership-card:nth-child(1) { animation-delay: 0.1s; }
+.membership-card:nth-child(2) { animation-delay: 0.2s; }
+.membership-card:nth-child(3) { animation-delay: 0.3s; }
+.membership-card:nth-child(4) { animation-delay: 0.4s; }
 
 @keyframes slideUp {
   to {
@@ -966,6 +959,13 @@ form input[type="hidden"] {
   font-size: 1.2rem;
   color: var(--navy);
   margin: 0 0 0.5rem 0;
+}
+
+.price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0.5rem 0;
 }
 
 .membership-desc {
@@ -988,7 +988,7 @@ form input[type="hidden"] {
   color: var(--gold);
 }
 
-/* Modal */
+/* Modal styling */
 .membership-modal {
   padding: 0;
   border: none;
@@ -1013,7 +1013,7 @@ form input[type="hidden"] {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: none;
+  background: transparent;
   border: none;
   font-size: 1.8rem;
   color: var(--slate);
@@ -1032,7 +1032,7 @@ form input[type="hidden"] {
 }
 
 .modal-content h2 {
-  background: none;
+  background: transparent;
   color: var(--navy);
   font-family: "Playfair Display", serif;
   font-size: 1.4rem;
@@ -1070,6 +1070,7 @@ form input[type="hidden"] {
   margin-top: 1.5rem;
   width: 100%;
   font-size: 1rem;
+  font-family: "Source Sans 3", sans-serif;
 }
 
 .modal-close-btn:hover {

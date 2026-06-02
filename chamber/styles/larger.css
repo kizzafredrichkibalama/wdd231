@@ -21,19 +21,19 @@
   nav ul li a {
     padding: 0.65rem 1.1rem;
     border-left: none;
-    border-bottom: 3px solid transparent;
+    border-bottom: 3px solid var(--navy);
     font-size: 0.9rem;
   }
 
   nav ul li a:hover,
   nav ul li a:focus {
-    border-left-color: transparent;
+    border-left-color: var(--navy);
     border-bottom-color: var(--gold);
     background: var(--dark-nav);
   }
 
   nav ul li a[aria-current="page"] {
-    border-left-color: transparent;
+    border-left-color: var(--navy);
     border-bottom-color: var(--gold);
     background: var(--dark-nav);
   }
