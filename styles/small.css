@@ -164,7 +164,9 @@ p.membership-price {
   color: var(--navy) !important; /* FIXED contrast */
   margin: 0.5rem 0;
 }
-
+.membership-price {
+  color: var(--navy);  
+}
 /* ================= LAYOUT ================= */
 
 main {
