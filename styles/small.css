@@ -130,7 +130,12 @@ header {
 }
 
 /* ================= NAV ================= */
-
+.price{
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #4063f0 !important;
+    margin: 0.5rem 0;
+}
 nav {
   background: var(--navy);
   display: none;
@@ -166,6 +171,12 @@ p.membership-price {
 }
 .membership-price {
   color: var(--navy);  
+}
+.membership-price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #404ff0 !important;
+    margin: 0.5rem 0;
 }
 /* ================= LAYOUT ================= */
 
