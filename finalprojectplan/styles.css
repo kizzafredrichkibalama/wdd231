@@ -1,0 +1,408 @@
+/* ============================================
+   Beyond Earth — Site Plan Stylesheet
+   W05 Project: Site Plan
+   ============================================ */
+
+/* ── CSS CUSTOM PROPERTIES (Color Scheme) ── */
+:root {
+  --color-bg:      #060c1a;
+  --color-surface: #0d1b35;
+  --color-accent:  #00c8ff;
+  --color-accent2: #f97316;
+  --color-text:    #cdd8f0;
+  --color-muted:   #5a6e94;
+  --color-heading: #ffffff;
+  --color-border:  rgba(0, 200, 255, 0.18);
+
+  --font-display: 'Orbitron', sans-serif;
+  --font-mono:    'Share Tech Mono', monospace;
+  --font-body:    'Barlow', sans-serif;
+}
+
+/* ── RESET ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── BASE ── */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.7;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Starfield background decoration */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(255, 255, 255, 0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 30% 60%, rgba(255, 255, 255, 0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 55% 15%, rgba(255, 255, 255, 0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 75% 45%, rgba(255, 255, 255, 0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 80%, rgba(255, 255, 255, 0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 20% 85%, rgba(255, 255, 255, 0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 65% 70%, rgba(255, 255, 255, 0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 45% 40%, rgba(255, 255, 255, 0.3) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── HEADER ── */
+header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 4rem 2rem 3rem;
+  border-bottom: 1px solid var(--color-border);
+  background: linear-gradient(180deg, rgba(0, 200, 255, 0.04) 0%, transparent 100%);
+}
+
+header .label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 5vw, 3rem);
+  font-weight: 900;
+  color: var(--color-heading);
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+header h1 span {
+  color: var(--color-accent);
+}
+
+header .subtitle {
+  margin-top: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  letter-spacing: 0.15em;
+}
+
+/* ── MAIN LAYOUT ── */
+main {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 2rem 5rem;
+}
+
+/* ── SECTIONS ── */
+section {
+  margin-bottom: 3.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 200, 255, 0.06);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.section-num {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-accent);
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+}
+
+.section-header h2 {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-heading);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.section-body {
+  padding: 1.5rem;
+  background: var(--color-surface);
+}
+
+/* ── HEADINGS INSIDE SECTIONS ── */
+h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-heading);
+  margin-bottom: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+h3:first-child {
+  margin-top: 0;
+}
+
+/* ── PARAGRAPHS ── */
+p {
+  font-size: 0.97rem;
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+}
+
+/* ── LISTS ── */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  padding: 0.3rem 0 0.3rem 1.2rem;
+  position: relative;
+  font-size: 0.95rem;
+}
+
+ul li::before {
+  content: '›';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+}
+
+/* ── TAGS / BADGES ── */
+.tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--color-accent);
+  background: rgba(0, 200, 255, 0.1);
+  border: 1px solid rgba(0, 200, 255, 0.25);
+  border-radius: 2px;
+  padding: 0.15em 0.6em;
+  margin-right: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.tag.orange {
+  color: var(--color-accent2);
+  background: rgba(249, 115, 22, 0.1);
+  border-color: rgba(249, 115, 22, 0.25);
+}
+
+/* ── COLOR SWATCHES ── */
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.swatch {
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.swatch-color {
+  height: 56px;
+}
+
+.swatch-info {
+  padding: 0.6rem 0.8rem;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.swatch-info strong {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-heading);
+  margin-bottom: 0.2rem;
+}
+
+.swatch-info span {
+  font-size: 0.78rem;
+  color: var(--color-muted);
+}
+
+/* ── TYPOGRAPHY DEMO BLOCKS ── */
+.font-demo {
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 1.2rem;
+  margin-top: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.font-demo + .font-demo {
+  margin-top: 0.75rem;
+}
+
+.font-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--color-accent);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.demo-orbitron {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-heading);
+  letter-spacing: 0.05em;
+}
+
+.demo-mono {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--color-accent);
+  letter-spacing: 0.08em;
+}
+
+.demo-barlow {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+.font-usage {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-muted);
+  margin-top: 0.4rem;
+  letter-spacing: 0.06em;
+}
+
+/* ── SCENARIOS ── */
+.scenario {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.2);
+  margin-bottom: 0.75rem;
+}
+
+.scenario-icon {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-accent2);
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.scenario p {
+  margin: 0;
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+/* ── DOMAIN BOX ── */
+.domain-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px dashed var(--color-accent);
+  border-radius: 3px;
+  padding: 0.4rem 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  margin-top: 0.75rem;
+}
+
+/* ── WIREFRAMES ── */
+.wireframes {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.wireframe-box {
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.wireframe-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  padding: 0.5rem 0.8rem;
+  background: rgba(0, 200, 255, 0.06);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.wireframe-svg {
+  display: block;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* ── FOOTER ── */
+footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-muted);
+  letter-spacing: 0.15em;
+  border-top: 1px solid var(--color-border);
+}
+
+/* ── UTILITY ── */
+.muted-note {
+  font-size: 0.82rem;
+  color: var(--color-muted);
+}
+
+.tag-row {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .wireframes {
+    grid-template-columns: 1fr;
+  }
+
+  .swatches {
+    grid-template-columns: 1fr 1fr;
+  }
+}
