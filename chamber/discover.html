@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover the top attractions, landmarks, and points of interest in Kampala, Uganda. Learn about the culture, history, and natural beauty of this vibrant African city.">
+  <title>Discover Kampala | Kampala Chamber of Commerce</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="apple-touch-icon" href="images/favicon.svg">
+  
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/small.css">
+  <link rel="stylesheet" href="styles/larger.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <a href="index.html" class="site-identity">
+      <img src="images/favicon.svg" alt="Kampala Chamber Logo" loading="lazy">
+      <span>Kampala<br>Chamber</span>
+    </a>
+    
+    <button id="menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <ul role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="discover.html" aria-current="page">Discover</a></li>
+      <li><a href="directory.html">Business Directory</a></li>
+      <li><a href="join.html">Join</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <h1 class="visually-hidden">Discover Kampala</h1>
+    
+    <!-- Visitor Message -->
+    <div id="visitor-message" class="visitor-banner" role="status" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Page Title Section -->
+    <section class="discover-hero">
+      <h2>Discover Kampala</h2>
+      <p class="page-subtitle">Explore the vibrant attractions, cultural landmarks, and natural beauty that make Kampala a must-visit destination.</p>
+    </section>
+
+    <!-- Attractions Grid -->
+    <section class="attractions-section" aria-label="Kampala attractions and points of interest">
+      <div id="attractions-container" class="attractions-grid" role="list">
+        <!-- Cards will be rendered here by JavaScript -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-contact">
+        <h2>Kampala Chamber of Commerce</h2>
+        <p>
+          📍 Kampala, Uganda<br>
+          📞 +256 (0) 393 239 850<br>
+          📧 <a href="mailto:info@kampalachamber.ug" style="color: var(--text-light);">info@kampalachamber.ug</a>
+        </p>
+      </div>
+
+      <div class="footer-social">
+        <a href="https://facebook.com/kampalachamber" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5c-.563-.074-1.396-.146-2.023-.146-2.28 0-3.977 1.398-3.977 3.957v2.189z"/>
+          </svg>
+        </a>
+        <a href="https://twitter.com/kampalachamber" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7.75.75 7.75.75z"/>
+          </svg>
+        </a>
+        <a href="https://linkedin.com/company/kampala-chamber" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="footer-dev">
+        <p>&copy; <span id="footer-year"></span> Kampala Chamber of Commerce. All rights reserved.</p>
+        <p>Developed by <span>Kizza Fredrich Kibalama</span></p>
+        <div id="lastModified"></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="scripts/navigation.js"></script>
+  <script src="scripts/date.js"></script>
+  <script src="scripts/discover.js" type="module"></script>
+</body>
+</html>

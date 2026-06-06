@@ -1,0 +1,78 @@
+W05 DISCOVER PAGE - IMAGE SOURCING GUIDE
+==========================================
+
+The discover.html page requires 8 webp images (300×200px each) in the chamber/images/ folder.
+
+REQUIRED IMAGES (save these exact filenames):
+1. kabaka-palace.webp
+2. kasubi-tombs.webp
+3. uganda-museum.webp
+4. makerere-university.webp
+5. national-mosque.webp
+6. botanical-gardens.webp
+7. lake-victoria.webp
+8. gaddafi-stadium.webp
+
+QUICK SOURCING OPTIONS:
+
+Option A: Use Free Stock Photos (Recommended)
+---------------------------------------------
+Sites: Unsplash, Pexels, Pixabay, Shutterstock Free
+Search for: "Kampala [attraction name]" or "[location name] Uganda"
+
+Option B: Convert Your Own Photos
+---------------------------------
+If you have local photos of these locations:
+1. Open in image editor (Photoshop, GIMP, Paint.net)
+2. Crop to 300×200px
+3. Export as WebP format
+4. Save to chamber/images/
+
+Option C: Online Conversion
+---------------------------
+1. Download/find a JPG or PNG image
+2. Use: https://cloudconvert.com or https://online-convert.com
+3. Convert to WebP format
+4. Resize to 300×200px using the tool
+
+CONVERTING TO WEBP IN COMMAND LINE:
+-----------------------------------
+If you have ImageMagick installed:
+  magick input.jpg -resize 300x200! output.webp
+
+If you have FFmpeg installed:
+  ffmpeg -i input.jpg -vf scale=300:200 output.webp
+
+PLACEMENT:
+----------
+All images go in: wdd231/chamber/images/
+
+Example structure:
+  wdd231/chamber/images/
+    ├── kabaka-palace.webp
+    ├── kasubi-tombs.webp
+    ├── uganda-museum.webp
+    ├── makerere-university.webp
+    ├── national-mosque.webp
+    ├── botanical-gardens.webp
+    ├── lake-victoria.webp
+    └── gaddafi-stadium.webp
+
+QUICK TIPS:
+-----------
+✅ Use high-quality source images (at least 400×300px)
+✅ WebP format reduces file size by 25-35% vs JPG
+✅ Ensure images are CC0 or properly licensed
+✅ 300×200px is a good mobile-friendly size
+✅ Test page weight after adding images (should be <500kb total)
+
+TESTING IMAGES:
+---------------
+After adding images:
+1. Run DevTools Lighthouse audit (should be 95+ Accessibility)
+2. Check page weight (Chrome DevTools → Network tab)
+3. Verify images load properly on mobile/tablet/desktop
+4. Check that lazy loading is working (scroll inspection)
+
+Once images are in place, all functionality (grid layouts, hover effects, 
+lazy loading, localStorage) will work automatically!
