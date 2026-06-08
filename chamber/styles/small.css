@@ -429,6 +429,15 @@ footer {
   line-height: 1.9;
 }
 
+.footer-link {
+  color: var(--text-light);
+  text-decoration: underline;
+}
+
+.footer-link:hover {
+  color: var(--gold);
+}
+
 .footer-dev p span { color: var(--gold); }
 
 #footer-year  { color: var(--gold); }
