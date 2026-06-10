@@ -20,7 +20,9 @@
 }
 
 /* ── RESET ── */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -45,16 +47,19 @@ body {
 body::before {
   content: '';
   position: fixed;
-  inset: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background-image:
-    radial-gradient(1px 1px at 10% 20%, rgba(255, 255, 255, 0.6) 0%, transparent 100%),
-    radial-gradient(1px 1px at 30% 60%, rgba(255, 255, 255, 0.4) 0%, transparent 100%),
-    radial-gradient(1px 1px at 55% 15%, rgba(255, 255, 255, 0.7) 0%, transparent 100%),
-    radial-gradient(1px 1px at 75% 45%, rgba(255, 255, 255, 0.5) 0%, transparent 100%),
-    radial-gradient(1px 1px at 90% 80%, rgba(255, 255, 255, 0.6) 0%, transparent 100%),
-    radial-gradient(1px 1px at 20% 85%, rgba(255, 255, 255, 0.4) 0%, transparent 100%),
-    radial-gradient(1px 1px at 65% 70%, rgba(255, 255, 255, 0.5) 0%, transparent 100%),
-    radial-gradient(1px 1px at 45% 40%, rgba(255, 255, 255, 0.3) 0%, transparent 100%);
+    radial-gradient(circle 1px at 10% 20%, rgba(255, 255, 255, 0.6) 0%, transparent 100%),
+    radial-gradient(circle 1px at 30% 60%, rgba(255, 255, 255, 0.4) 0%, transparent 100%),
+    radial-gradient(circle 1px at 55% 15%, rgba(255, 255, 255, 0.7) 0%, transparent 100%),
+    radial-gradient(circle 1px at 75% 45%, rgba(255, 255, 255, 0.5) 0%, transparent 100%),
+    radial-gradient(circle 1px at 90% 80%, rgba(255, 255, 255, 0.6) 0%, transparent 100%),
+    radial-gradient(circle 1px at 20% 85%, rgba(255, 255, 255, 0.4) 0%, transparent 100%),
+    radial-gradient(circle 1px at 65% 70%, rgba(255, 255, 255, 0.5) 0%, transparent 100%),
+    radial-gradient(circle 1px at 45% 40%, rgba(255, 255, 255, 0.3) 0%, transparent 100%);
   pointer-events: none;
   z-index: 0;
 }
@@ -147,7 +152,7 @@ section {
   background: var(--color-surface);
 }
 
-/* ── HEADINGS INSIDE SECTIONS ── */
+/* ── HEADINGS ── */
 h3 {
   font-family: var(--font-display);
   font-size: 1.1rem;
@@ -181,7 +186,7 @@ ul li {
 }
 
 ul li::before {
-  content: '›';
+  content: '\203A';
   position: absolute;
   left: 0;
   color: var(--color-accent);
@@ -226,6 +231,13 @@ ul li::before {
 .swatch-color {
   height: 56px;
 }
+
+/* Swatch color fills — no inline styles */
+.bg-deep-space  { background-color: #060c1a; }
+.bg-nebula      { background-color: #0d1b35; }
+.bg-cyan        { background-color: #00c8ff; }
+.bg-orange      { background-color: #f97316; }
+.bg-starlight   { background-color: #cdd8f0; }
 
 .swatch-info {
   padding: 0.6rem 0.8rem;
@@ -327,9 +339,7 @@ ul li::before {
 
 /* ── DOMAIN BOX ── */
 .domain-box {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
+  display: inline-block;
   border: 1px dashed var(--color-accent);
   border-radius: 3px;
   padding: 0.4rem 0.9rem;
@@ -337,6 +347,7 @@ ul li::before {
   font-size: 0.85rem;
   color: var(--color-accent);
   margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 /* ── WIREFRAMES ── */
@@ -362,6 +373,7 @@ ul li::before {
   padding: 0.5rem 0.8rem;
   background: rgba(0, 200, 255, 0.06);
   border-bottom: 1px solid var(--color-border);
+  margin-bottom: 0;
 }
 
 .wireframe-svg {
@@ -390,10 +402,17 @@ footer {
 }
 
 .tag-row {
-  margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
+}
+
+.top-gap {
+  margin-top: 1rem;
+}
+
+.bottom-gap {
+  margin-bottom: 1rem;
 }
 
 /* ── RESPONSIVE ── */
