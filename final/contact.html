@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact & Favorites — Beyond Earth</title>
+  <meta name="description" content="Get in touch or view your saved favorite spacecraft." />
+  <meta name="author" content="Fred" />
+  
+  <meta property="og:title" content="Contact & Favorites — Beyond Earth" />
+  <meta property="og:description" content="Send feedback or explore your favorite spacecraft." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Barlow:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav aria-label="Main navigation">
+    <a href="index.html" class="nav-brand">Beyond <span>Earth</span></a>
+    <button id="hamburger" class="hamburger" aria-controls="nav-links" aria-expanded="false">☰</button>
+    <ul id="nav-links" class="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-hero" aria-labelledby="page-title">
+    <div class="container">
+      <p class="section-label">Get in Touch</p>
+      <h1 id="page-title" class="section-title">Contact & <span>Favorites</span></h1>
+      <p class="section-desc">Have questions or feedback? Reach out below. View your saved favorite spacecraft in real-time.</p>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section>
+      <div class="container">
+        <div class="form-layout">
+          <form class="contact-form" method="POST" action="contact-success.html">
+            <h2>Send us a message</h2>
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="Name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="Email" required />
+            </div>
+            <div class="form-group">
+              <label for="category">Message Category</label>
+              <select id="category" name="category" required>
+                <option value="">— Select a category —</option>
+                <option value="General Inquiry">General Inquiry</option>
+                <option value="Spacecraft Suggestion">Spacecraft Suggestion</option>
+                <option value="Technical Issue">Technical Issue</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Your message…" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit">Send Message</button>
+          </form>
+
+          <aside aria-labelledby="fav-title">
+            <div class="favorites-panel">
+              <h2 id="fav-title" class="fav-title">
+                Your Favorites
+                <span id="favorites-count">0</span>
+              </h2>
+              <ul id="favorites-list" class="fav-list"></ul>
+              <div id="favorites-empty" class="fav-empty">Save your favorite spacecraft and they'll appear here.</div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Beyond <span>Earth</span></div>
+          <p class="footer-desc">An educational encyclopedia of spacecraft — past, present, and future.</p>
+        </div>
+        <nav aria-label="Footer navigation">
+          <p class="footer-heading">Pages</p>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="history.html">History</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="attributions.html">Attributions</a></li>
+          </ul>
+        </nav>
+        <div>
+          <p class="footer-heading">Resources</p>
+          <ul class="footer-links">
+            <li><a href="https://www.nasa.gov" target="_blank" rel="noopener">NASA</a></li>
+            <li><a href="https://www.spacex.com" target="_blank" rel="noopener">SpaceX</a></li>
+            <li><a href="YOUR_VIDEO_LINK_HERE" target="_blank" rel="noopener">📹 Demo Video</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> Beyond Earth — Fred</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script src="js/shared.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>

@@ -1,0 +1,368 @@
+/* ============================================================
+   Beyond Earth — Base/Shared Styles
+   ============================================================ */
+
+:root {
+  --bg: #060c1a;
+  --surface: #0d1b35;
+  --surface2: #112040;
+  --accent: #00c8ff;
+  --accent2: #f97316;
+  --text: #cdd8f0;
+  --muted: #6a7fa8;
+  --heading: #ffffff;
+  --border: rgba(0, 200, 255, 0.15);
+  --radius: 6px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Barlow', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: var(--accent);
+  color: var(--bg);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  font-weight: 700;
+  z-index: 1000;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ── NAVIGATION ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 64px;
+  background: rgba(6, 12, 26, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+}
+
+.nav-brand {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--heading);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.nav-brand span {
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text);
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius);
+  transition: color 0.2s, background 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent);
+  background: rgba(0, 200, 255, 0.08);
+  text-decoration: none;
+}
+
+.nav-links a[aria-current="page"] {
+  color: var(--accent);
+  background: rgba(0, 200, 255, 0.1);
+  border-bottom: 2px solid var(--accent);
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  color: var(--text);
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.hamburger:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ── RESPONSIVE NAV ── */
+@media (max-width: 640px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: rgba(6, 12, 26, 0.97);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .nav-links.open {
+    max-height: 300px;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 1rem 1.5rem;
+    border-radius: 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.85rem;
+  }
+}
+
+/* ── CONTAINER ── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+main {
+  padding-bottom: 4rem;
+}
+
+section {
+  padding: 4rem 0;
+}
+
+.section-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 900;
+  color: var(--heading);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.section-title span {
+  color: var(--accent);
+}
+
+.section-desc {
+  color: var(--muted);
+  font-size: 1rem;
+  max-width: 55ch;
+  margin-bottom: 2.5rem;
+}
+
+/* ── BUTTONS ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 700;
+}
+
+.btn-primary:hover {
+  background: #33d4ff;
+  text-decoration: none;
+  color: var(--bg);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 3rem 0 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 640px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.footer-brand {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--heading);
+  margin-bottom: 0.75rem;
+}
+
+.footer-brand span {
+  color: var(--accent);
+}
+
+.footer-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.footer-heading {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-links a {
+  font-size: 0.88rem;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.footer-bottom {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+/* ── UTILITY ── */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.loading {
+  text-align: center;
+  padding: 3rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+.error-msg {
+  text-align: center;
+  padding: 3rem;
+  color: var(--accent2);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+}
