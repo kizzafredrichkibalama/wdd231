@@ -3,7 +3,7 @@
    W05 Project: Site Plan
    ============================================ */
 
-/* ── CSS CUSTOM PROPERTIES (Color Scheme) ── */
+/*  CSS CUSTOM PROPERTIES (Color Scheme)  */
 :root {
   --color-bg:      #060c1a;
   --color-surface: #0d1b35;
@@ -19,7 +19,7 @@
   --font-body:    'Barlow', sans-serif;
 }
 
-/* ── RESET ── */
+/*  RESET  */
 *,
 *::before,
 *::after {
@@ -32,7 +32,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* ── BASE ── */
+/*  BASE  */
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
@@ -64,7 +64,7 @@ body::before {
   z-index: 0;
 }
 
-/* ── HEADER ── */
+/*  HEADER  */
 header {
   position: relative;
   z-index: 1;
@@ -104,7 +104,7 @@ header .subtitle {
   letter-spacing: 0.15em;
 }
 
-/* ── MAIN LAYOUT ── */
+/*  MAIN LAYOUT  */
 main {
   position: relative;
   z-index: 1;
@@ -113,7 +113,7 @@ main {
   padding: 3rem 2rem 5rem;
 }
 
-/* ── SECTIONS ── */
+/*  SECTIONS  */
 section {
   margin-bottom: 3.5rem;
   border: 1px solid var(--color-border);
@@ -152,7 +152,7 @@ section {
   background: var(--color-surface);
 }
 
-/* ── HEADINGS ── */
+/*  HEADINGS  */
 h3 {
   font-family: var(--font-display);
   font-size: 1.1rem;
@@ -166,14 +166,14 @@ h3:first-child {
   margin-top: 0;
 }
 
-/* ── PARAGRAPHS ── */
+/*  PARAGRAPHS  */
 p {
   font-size: 0.97rem;
   color: var(--color-text);
   margin-bottom: 0.75rem;
 }
 
-/* ── LISTS ── */
+/*  LISTS  */
 ul {
   list-style: none;
   padding: 0;
@@ -193,7 +193,7 @@ ul li::before {
   font-family: var(--font-mono);
 }
 
-/* ── TAGS / BADGES ── */
+/*  TAGS / BADGES  */
 .tag {
   display: inline-block;
   font-family: var(--font-mono);
@@ -214,7 +214,7 @@ ul li::before {
   border-color: rgba(249, 115, 22, 0.25);
 }
 
-/* ── COLOR SWATCHES ── */
+/*  COLOR SWATCHES  */
 .swatches {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -257,7 +257,7 @@ ul li::before {
   color: var(--color-muted);
 }
 
-/* ── TYPOGRAPHY DEMO BLOCKS ── */
+/*  TYPOGRAPHY DEMO BLOCKS  */
 .font-demo {
   border: 1px solid var(--color-border);
   border-radius: 4px;
@@ -310,7 +310,7 @@ ul li::before {
   letter-spacing: 0.06em;
 }
 
-/* ── SCENARIOS ── */
+/*  SCENARIOS  */
 .scenario {
   display: flex;
   gap: 1rem;
@@ -337,7 +337,7 @@ ul li::before {
   font-size: 0.95rem;
 }
 
-/* ── DOMAIN BOX ── */
+/*  DOMAIN BOX  */
 .domain-box {
   display: inline-block;
   border: 1px dashed var(--color-accent);
@@ -350,7 +350,7 @@ ul li::before {
   margin-bottom: 0.75rem;
 }
 
-/* ── WIREFRAMES ── */
+/*  WIREFRAMES  */
 .wireframes {
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -382,7 +382,7 @@ ul li::before {
   background: rgba(0, 0, 0, 0.25);
 }
 
-/* ── FOOTER ── */
+/*  FOOTER  */
 footer {
   position: relative;
   z-index: 1;
@@ -395,7 +395,7 @@ footer {
   border-top: 1px solid var(--color-border);
 }
 
-/* ── UTILITY ── */
+/*  UTILITY  */
 .muted-note {
   font-size: 0.82rem;
   color: var(--color-muted);
@@ -415,7 +415,7 @@ footer {
   margin-bottom: 1rem;
 }
 
-/* ── RESPONSIVE ── */
+/*  RESPONSIVE  */
 @media (max-width: 600px) {
   .wireframes {
     grid-template-columns: 1fr;

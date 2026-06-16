@@ -11,14 +11,14 @@
  *  2. Year footer — sets current year dynamically
  */
 
-// ── SET CURRENT YEAR IN FOOTER ────────────────────────────────
+//  SET CURRENT YEAR IN FOOTER 
 // DOM MANIPULATION: update the <span id="year"> on every page
 const yearEl = document.getElementById('year');
 if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
 }
 
-// ── NAVIGATION ────────────────────────────────────────────────
+//  NAVIGATION 
 function initNav() {
   const hamburger = document.getElementById('hamburger');
   const navLinks  = document.getElementById('nav-links');

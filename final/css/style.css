@@ -64,7 +64,7 @@ img {
   top: 1rem;
 }
 
-/* ── NAVIGATION ── */
+/*  NAVIGATION  */
 nav {
   position: sticky;
   top: 0;
@@ -140,7 +140,7 @@ nav {
   outline-offset: 2px;
 }
 
-/* ── RESPONSIVE NAV ── */
+/*  RESPONSIVE NAV  */
 @media (max-width: 640px) {
   .hamburger {
     display: block;
@@ -174,7 +174,7 @@ nav {
   }
 }
 
-/* ── CONTAINER ── */
+/*  CONTAINER  */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -218,7 +218,7 @@ section {
   margin-bottom: 2.5rem;
 }
 
-/* ── BUTTONS ── */
+/*  BUTTONS  */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -258,7 +258,7 @@ section {
   text-decoration: none;
 }
 
-/* ── FOOTER ── */
+/*  FOOTER  */
 footer {
   background: var(--surface);
   border-top: 1px solid var(--border);
@@ -337,7 +337,7 @@ footer {
   color: var(--muted);
 }
 
-/* ── UTILITY ── */
+/*  UTILITY  */
 .visually-hidden {
   position: absolute;
   width: 1px;
