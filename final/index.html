@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Barlow:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/favicon.svg">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/index.css">
   <title>Beyond Earth — A Spacecraft Encyclopedia</title>
-  <meta name="description" content="Explore humanity's greatest machines — an interactive encyclopedia of spacecraft from Sputnik to Starship." />
-  <meta name="author" content="Fred" />
-  
-  <meta property="og:title" content="Beyond Earth — A Spacecraft Encyclopedia" />
-  <meta property="og:description" content="Explore humanity's greatest machines. An interactive guide to spacecraft from Sputnik to Starship." />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Beyond Earth — A Spacecraft Encyclopedia" />
-  
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Barlow:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/index.css" />
+  <meta name="description" content="Explore humanity's greatest machines - an interactive encyclopedia of spacecraft from Sputnik to Starship.">
+  <meta name="author" content="Fred">
+  <meta property="og:title" content="Beyond Earth - A Spacecraft Encyclopedia">
+  <meta property="og:description" content="Explore humanity's greatest machines. An interactive guide to spacecraft from Sputnik to Starship.">
+  <meta property="og:image" content="https://kizzafredrichkibalama.github.io/wdd231/final/images/og-image.jpg">
+  <meta property="og:url" content="https://kizzafredrichkibalama.github.io/wdd231/final/">
 </head>
 <body>
-
   <a href="#main-content" class="skip-link">Skip to main content</a>
-
-  <nav aria-label="Main navigation">
-    <a href="index.html" class="nav-brand">Beyond <span>Earth</span></a>
-    <button id="hamburger" class="hamburger" aria-controls="nav-links" aria-expanded="false">☰</button>
-    <ul id="nav-links" class="nav-links" role="list">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="history.html">History</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+  
+  <header>
+    <nav aria-label="Main navigation">
+      <a href="index.html" class="nav-brand">Beyond <span>Earth</span></a>
+      <button id="hamburger" class="hamburger" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation menu">☰</button>
+      <ul id="nav-links" class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-bg"></div>
+    <div class="hero-bg" aria-hidden="true"></div>
     <div class="container hero-content">
       <p class="hero-eyebrow">A Spacecraft Encyclopedia</p>
-      <h1 id="hero-title" class="hero-title">Beyond<br /><span>Earth</span></h1>
+      <h1 id="hero-title" class="hero-title">Beyond<br><span>Earth</span></h1>
       <p class="hero-sub">From Sputnik's first beep in 1957 to Starship's thunderous ascent — explore the machines that extended humanity's reach into the cosmos.</p>
       <div class="hero-stats" aria-label="Site statistics">
         <div class="stat-item">
@@ -64,24 +64,25 @@
       <div class="container">
         <p class="section-label">The Collection</p>
         <h2 id="grid-title" class="section-title">Spacecraft <span>Database</span></h2>
-        <p class="section-desc">Browse <span id="spacecraft-count">18</span> spacecraft from across the history of space exploration.</p>
-
+        <p class="section-desc">Browse <span id="spacecraft-count">18</span> spacecraft from across the history of space exploration. Click any card to see full mission details and save your favorites.</p>
         <div id="filters" class="filters" role="group" aria-label="Filter spacecraft by type"></div>
-        <div id="spacecraft-grid" class="spacecraft-grid" aria-live="polite"></div>
+        <div id="spacecraft-grid" class="spacecraft-grid" aria-label="Spacecraft cards" aria-live="polite">
+          <p class="loading">Loading spacecraft data…</p>
+        </div>
       </div>
     </section>
   </main>
 
-  <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+  <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
     <div class="modal">
       <div class="modal-header">
         <div>
           <h2 id="modal-title" class="modal-title"></h2>
           <p id="modal-subtitle" class="modal-subtitle"></p>
         </div>
-        <button id="modal-close" class="modal-close">✕</button>
+        <button id="modal-close" class="modal-close" aria-label="Close dialog">✕</button>
       </div>
-      <img id="modal-image" class="modal-image" src="" alt="" width="680" height="240" />
+      <img id="modal-image" class="modal-image" src="" alt="" width="680" height="240">
       <div class="modal-body">
         <p id="modal-desc" class="modal-desc"></p>
         <div id="modal-specs" class="modal-specs"></div>
@@ -96,7 +97,7 @@
       <div class="footer-grid">
         <div>
           <div class="footer-brand">Beyond <span>Earth</span></div>
-          <p class="footer-desc">An educational encyclopedia of spacecraft — past, present, and future.</p>
+          <p class="footer-desc">An educational encyclopedia of spacecraft — past, present, and future. Built as a BYU-Idaho WDD 231 final project.</p>
         </div>
         <nav aria-label="Footer navigation">
           <p class="footer-heading">Pages</p>
@@ -112,20 +113,19 @@
           <ul class="footer-links">
             <li><a href="https://www.nasa.gov" target="_blank" rel="noopener">NASA</a></li>
             <li><a href="https://www.spacex.com" target="_blank" rel="noopener">SpaceX</a></li>
-            <li><a href="YOUR_VIDEO_LINK_HERE" target="_blank" rel="noopener">📹 Demo Video</a></li>
+            <li><a href="https://www.esa.int" target="_blank" rel="noopener">ESA</a></li>
+            <li><a href="your-video-link-here" target="_blank" rel="noopener">Demo Video</a></li>
           </ul>
-        </div>
+        </nav>
       </div>
       <div class="footer-bottom">
-        <span>&copy; <span id="year"></span> Beyond Earth — Fred</span>
+        <span>&copy; <span id="year"></span> Beyond Earth — Fred — BYU-Idaho WDD 231</span>
+        <span>Data sourced from public space agency records</span>
       </div>
     </div>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-  <script src="js/shared.js"></script>
-  <script src="js/index.js"></script>
+  <script src="scripts/helpers.js" defer></script>
+  <script src="scripts/index.js" defer></script>
 </body>
 </html>
