@@ -1,54 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Attributions — Beyond Earth</title>
-  <meta name="author" content="Fred" />
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
-  <style>
-    body { font-family: 'Barlow', system-ui, sans-serif; background: #060c1a; color: #cdd8f0; max-width: 800px; margin: 0 auto; padding: 2rem; line-height: 1.6; }
-    h1 { color: #ffffff; font-family: 'Orbitron', sans-serif; margin-top: 0; }
-    h2 { color: #ffffff; margin-top: 2rem; }
-    a { color: #00c8ff; }
-    a:hover { text-decoration: underline; }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Barlow:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/favicon.svg">
+  <link rel="stylesheet" href="styles/style.css">
+  <title>Attributions - Beyond Earth</title>
+  <meta name="description" content="Image and data attributions for the Beyond Earth spacecraft encyclopedia.">
+  <meta name="author" content="Kizza Fredrich Kibalama">
+  <meta property="og:title" content="Attributions - Beyond Earth">
+  <meta property="og:description" content="Image and data sources for Beyond Earth.">
+  <meta property="og:image" content="https://kizzafredrichkibalama.github.io/wdd231/final/images/og-image.jpg">
+  <meta property="og:url" content="https://kizzafredrichkibalama.github.io/wdd231/final/attributions.html">
 </head>
 <body>
-
-  <h1>Attributions & Sources</h1>
-  <p>This project was built for the BYU-Idaho WDD 231 Web Design course by Fred.</p>
-
-  <h2>Spacecraft Data Sources</h2>
-  <p>Spacecraft information compiled from:</p>
-  <ul>
-    <li><strong>NASA</strong> (nasa.gov) — Official mission data</li>
-    <li><strong>European Space Agency</strong> (esa.int) — ESA spacecraft data</li>
-    <li><strong>SpaceX</strong> (spacex.com) — Commercial spaceflight data</li>
-    <li><strong>Wikipedia</strong> — Space exploration reference</li>
-  </ul>
-
-  <h2>Image Sources</h2>
-  <p>All spacecraft images from public domain and Creative Commons sources:</p>
-  <ul>
-    <li><strong>NASA Image Gallery</strong> (images.nasa.gov)</li>
-    <li><strong>Wikimedia Commons</strong> (commons.wikimedia.org)</li>
-    <li><strong>ESA Media Library</strong> (esa.int/media)</li>
-  </ul>
-
-  <h2>Fonts & Resources</h2>
-  <ul>
-    <li><strong>Google Fonts</strong> — Orbitron, Share Tech Mono, Barlow</li>
-    <li><strong>Responsive Design</strong> — CSS Grid and Flexbox</li>
-  </ul>
-
-  <h2>Technologies</h2>
-  <p>Built with vanilla HTML, CSS, and JavaScript. No frameworks or libraries.</p>
-
-  <hr style="margin: 3rem 0; border: 1px solid rgba(0, 200, 255, 0.15);" />
-  <p style="text-align: center; font-size: 0.9em; color: #6a7fa8;">
-    <a href="index.html">← Return to Home</a>
-  </p>
-
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header>
+    <nav aria-label="Main navigation">
+      <a href="index.html" class="nav-brand">Beyond <span>Earth</span></a>
+      <button id="hamburger" class="hamburger" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+      <ul id="nav-links" class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="main-content">
+    <section class="page-hero" aria-labelledby="attr-title">
+      <div class="container">
+        <p class="section-label">Credits</p>
+        <h1 id="attr-title" class="section-title">Attributions</h1>
+      </div>
+    </section>
+    <section>
+      <div class="container" style="max-width:800px">
+        <h2 class="section-title" style="font-size:1.2rem">Data Sources</h2>
+        <ul class="footer-links" style="margin-bottom:2rem">
+          <li><a href="https://www.nasa.gov" target="_blank" rel="noopener">NASA — nasa.gov</a></li>
+          <li><a href="https://www.esa.int" target="_blank" rel="noopener">ESA — esa.int</a></li>
+          <li><a href="https://www.spacex.com" target="_blank" rel="noopener">SpaceX — spacex.com</a></li>
+          <li><a href="https://en.wikipedia.org" target="_blank" rel="noopener">Wikipedia — en.wikipedia.org</a></li>
+        </ul>
+        <h2 class="section-title" style="font-size:1.2rem">Images</h2>
+        <p style="color:var(--muted);font-size:.9rem;margin-bottom:1rem">All spacecraft images sourced from NASA Image Gallery, Wikimedia Commons, and ESA Media Library under public domain or Creative Commons licenses. Images resized and optimized for web use.</p>
+        <h2 class="section-title" style="font-size:1.2rem">Fonts</h2>
+        <p style="color:var(--muted);font-size:.9rem">Google Fonts: Orbitron, Share Tech Mono, Barlow</p>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> Beyond Earth — Kizza Fredrich Kibalama — BYU-Idaho WDD 231</span>
+        <a href="index.html">Return Home</a>
+      </div>
+    </div>
+  </footer>
+  <script src="scripts/helpers.js" defer></script>
 </body>
 </html>

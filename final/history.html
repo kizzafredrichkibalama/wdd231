@@ -1,45 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>History of Space Exploration — Beyond Earth</title>
-  <meta name="description" content="A timeline of space exploration milestones — from Sputnik to Starship." />
-  <meta name="author" content="Fred" />
-  
-  <meta property="og:title" content="History of Space Exploration — Beyond Earth" />
-  <meta property="og:description" content="A timeline of humanity's greatest space milestones." />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  
-  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Barlow:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/history.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Barlow:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/favicon.svg">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/history.css">
+  <title>History - Beyond Earth</title>
+  <meta name="description" content="Space exploration timeline from Sputnik 1957 to Starship 2023. Major milestones in spacecraft history.">
+  <meta name="author" content="Kizza Fredrich Kibalama">
+  <meta property="og:title" content="History - Beyond Earth">
+  <meta property="og:description" content="Space exploration timeline from Sputnik 1957 to Starship 2023.">
+  <meta property="og:image" content="https://kizzafredrichkibalama.github.io/wdd231/final/images/og-image.jpg">
+  <meta property="og:url" content="https://kizzafredrichkibalama.github.io/wdd231/final/history.html">
 </head>
 <body>
-
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <nav aria-label="Main navigation">
-    <a href="index.html" class="nav-brand">Beyond <span>Earth</span></a>
-    <button id="hamburger" class="hamburger" aria-controls="nav-links" aria-expanded="false">☰</button>
-    <ul id="nav-links" class="nav-links" role="list">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="history.html">History</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-
-  <header class="page-hero" aria-labelledby="page-title">
-    <div class="container">
-      <p class="section-label">The Story So Far</p>
-      <h1 id="page-title" class="section-title">History of <span>Space Exploration</span></h1>
-      <p class="section-desc">Seven decades of launches, landings, and leaps of faith — the milestones that pushed humanity beyond its home planet.</p>
-    </div>
+  <header>
+    <nav aria-label="Main navigation">
+      <a href="index.html" class="nav-brand">Beyond <span>Earth</span></a>
+      <button id="hamburger" class="hamburger" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+      <ul id="nav-links" class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main id="main-content">
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="container">
+        <p class="section-label">The Story So Far</p>
+        <h1 id="page-title" class="section-title">History of <span>Space Exploration</span></h1>
+        <p class="section-desc">Seven decades of launches, landings, and leaps of faith — the milestones that pushed humanity beyond its home planet.</p>
+      </div>
+    </section>
+
     <section aria-labelledby="eras-title">
       <div class="container">
         <p class="section-label">Four Eras</p>
@@ -53,17 +54,17 @@
           <div class="era-card">
             <div class="era-name">The Shuttle Era</div>
             <div class="era-years">1972 – 2011</div>
-            <p class="era-desc">The Space Shuttle made space feel routine — deploying telescopes, building the ISS, and flying 135 missions.</p>
+            <p class="era-desc">The Space Shuttle made space feel routine — deploying telescopes, building the ISS, and flying 135 missions over 30 years.</p>
           </div>
           <div class="era-card">
             <div class="era-name">The ISS Era</div>
             <div class="era-years">1998 – Present</div>
-            <p class="era-desc">International cooperation produced the largest structure ever assembled in space, continuously inhabited for over two decades.</p>
+            <p class="era-desc">International cooperation produced the largest structure ever assembled in space. Continuously inhabited for over two decades.</p>
           </div>
           <div class="era-card">
             <div class="era-name">The Commercial Era</div>
             <div class="era-years">2010 – Present</div>
-            <p class="era-desc">Private companies like SpaceX disrupted the launch industry with reusable rockets, driving costs down and opening space to new missions.</p>
+            <p class="era-desc">Private companies like SpaceX disrupted the launch industry with reusable rockets, driving costs down and opening space to more missions.</p>
           </div>
         </div>
       </div>
@@ -73,51 +74,41 @@
       <div class="container">
         <p class="section-label">Key Milestones</p>
         <h2 id="timeline-title" class="section-title">Mission <span>Timeline</span></h2>
-        <div class="timeline" role="list">
-          <div class="timeline-item" role="listitem">
+        <div class="timeline">
+          <div class="timeline-item">
             <div class="timeline-year">1957</div>
-            <div class="timeline-event">Sputnik 1</div>
-            <p class="timeline-desc">The world's first artificial satellite launches, inaugurating the Space Age.</p>
+            <div class="timeline-event">Sputnik 1 — First Satellite</div>
+            <p class="timeline-desc">The Soviet Union launches the world's first artificial satellite on October 4th, inaugurating the Space Age.</p>
           </div>
-          <div class="timeline-item" role="listitem">
+          <div class="timeline-item">
             <div class="timeline-year">1961</div>
-            <div class="timeline-event">Vostok 1</div>
-            <p class="timeline-desc">Yuri Gagarin becomes the first human in space.</p>
+            <div class="timeline-event">Vostok 1 — First Human in Space</div>
+            <p class="timeline-desc">Yuri Gagarin orbits Earth once in 108 minutes, becoming the first human to travel to space.</p>
           </div>
-          <div class="timeline-item" role="listitem">
+          <div class="timeline-item">
             <div class="timeline-year">1969</div>
-            <div class="timeline-event">Apollo 11</div>
+            <div class="timeline-event">Apollo 11 — First Moon Landing</div>
             <p class="timeline-desc">Neil Armstrong and Buzz Aldrin become the first humans to walk on the Moon.</p>
           </div>
-          <div class="timeline-item" role="listitem">
+          <div class="timeline-item">
             <div class="timeline-year">1977</div>
-            <div class="timeline-event">Voyager</div>
-            <p class="timeline-desc">Twin probes launch to explore the outer solar system, eventually reaching interstellar space.</p>
+            <div class="timeline-event">Voyager 1 and 2 — The Grand Tour</div>
+            <p class="timeline-desc">Twin probes launch to explore the outer solar system. Voyager 1 crosses into interstellar space in 2012.</p>
           </div>
-          <div class="timeline-item" role="listitem">
-            <div class="timeline-year">1981</div>
-            <div class="timeline-event">Space Shuttle</div>
-            <p class="timeline-desc">Columbia's first flight marks the era of reusable spaceflight.</p>
+          <div class="timeline-item">
+            <div class="timeline-year">1990</div>
+            <div class="timeline-event">Hubble Space Telescope — A New View</div>
+            <p class="timeline-desc">Deployed by Space Shuttle Discovery, Hubble fundamentally changed our understanding of the universe.</p>
           </div>
-          <div class="timeline-item" role="listitem">
-            <div class="timeline-year">1998</div>
-            <div class="timeline-event">ISS Construction</div>
-            <p class="timeline-desc">The first module of the International Space Station launches.</p>
-          </div>
-          <div class="timeline-item" role="listitem">
+          <div class="timeline-item">
             <div class="timeline-year">2020</div>
-            <div class="timeline-event">Crew Dragon</div>
-            <p class="timeline-desc">SpaceX's Crew Dragon carries NASA astronauts to the ISS from US soil for the first time since 2011.</p>
+            <div class="timeline-event">Crew Dragon — Commercial Crew Era</div>
+            <p class="timeline-desc">SpaceX carries NASA astronauts to the ISS from US soil for the first time since the Shuttle retired in 2011.</p>
           </div>
-          <div class="timeline-item" role="listitem">
+          <div class="timeline-item">
             <div class="timeline-year">2021</div>
-            <div class="timeline-event">JWST & Ingenuity</div>
-            <p class="timeline-desc">The James Webb Space Telescope launches, and Ingenuity becomes the first helicopter to fly on Mars.</p>
-          </div>
-          <div class="timeline-item" role="listitem">
-            <div class="timeline-year">2023+</div>
-            <div class="timeline-event">Starship Era</div>
-            <p class="timeline-desc">SpaceX's fully reusable Starship begins testing, designed to carry humans to Mars.</p>
+            <div class="timeline-event">James Webb Space Telescope — The Deepest View</div>
+            <p class="timeline-desc">JWST launches on Christmas Day and captures the deepest infrared images of the early universe ever taken.</p>
           </div>
         </div>
       </div>
@@ -145,20 +136,16 @@
           <ul class="footer-links">
             <li><a href="https://www.nasa.gov" target="_blank" rel="noopener">NASA</a></li>
             <li><a href="https://www.spacex.com" target="_blank" rel="noopener">SpaceX</a></li>
-            <li><a href="YOUR_VIDEO_LINK_HERE" target="_blank" rel="noopener">📹 Demo Video</a></li>
+            <li><a href="your-video-link-here" target="_blank" rel="noopener">Demo Video</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; <span id="year"></span> Beyond Earth — Fred</span>
+        <span>&copy; <span id="year"></span> Beyond Earth — Kizza Fredrich Kibalama — BYU-Idaho WDD 231</span>
       </div>
     </div>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-  <script src="js/shared.js"></script>
-  <script src="js/history.js"></script>
+  <script src="scripts/helpers.js" defer></script>
 </body>
 </html>
