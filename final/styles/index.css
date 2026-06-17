@@ -1,5 +1,5 @@
 /* =========================
-   HERO SECTION (FIXED)
+   HERO SECTION
 ========================= */
 
 .hero {
@@ -19,7 +19,6 @@
     radial-gradient(ellipse 60% 40% at 20% 80%, rgba(249, 115, 22, 0.04) 0%, transparent 50%);
 }
 
-/* Fix stacking for accessibility */
 .hero-content {
   position: relative;
   z-index: 1;
@@ -101,7 +100,7 @@
 }
 
 /* =========================
-   HERO BUTTONS
+   HERO ACTIONS
 ========================= */
 
 .hero-actions {
@@ -153,7 +152,7 @@
 }
 
 /* =========================
-   CARDS
+   CARD
 ========================= */
 
 .spacecraft-card {
@@ -176,8 +175,8 @@
 .card-image {
   height: 160px;
   background: var(--surface2);
-  position: relative;
   overflow: hidden;
+  position: relative;
 }
 
 .card-image img {
@@ -209,7 +208,7 @@
 
 .status-active {
   background: rgba(0, 230, 100, 0.18);
-  color: #00ff88; /* FIXED contrast */
+  color: #00ff88;
   border: 1px solid rgba(0, 230, 100, 0.4);
 }
 
@@ -279,7 +278,7 @@
 }
 
 /* =========================
-   FOOTER CARD FIX
+   FOOTER CARD
 ========================= */
 
 .card-footer {
@@ -291,7 +290,7 @@
 }
 
 /* =========================
-   MODAL (FIXED ACCESSIBILITY)
+   MODAL
 ========================= */
 
 .modal-overlay {
@@ -320,13 +319,13 @@
   overflow-y: auto;
 }
 
-/* Prevent background scroll */
+/* prevent scroll when modal open */
 body.modal-open {
   overflow: hidden;
 }
 
 /* =========================
-   MOBILE FIX
+   MOBILE
 ========================= */
 
 @media (max-width: 768px) {
