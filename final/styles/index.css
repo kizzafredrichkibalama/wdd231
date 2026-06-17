@@ -1,6 +1,8 @@
-/* =========================
-   HERO SECTION
-========================= */
+.site-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
 
 .hero {
   min-height: 88vh;
@@ -15,8 +17,8 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 70% 50%, rgba(0, 200, 255, 0.06) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 40% at 20% 80%, rgba(249, 115, 22, 0.04) 0%, transparent 50%);
+    radial-gradient(ellipse 80% 60% at 70% 50%, rgba(0,200,255,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 20% 80%, rgba(249,115,22,0.04) 0%, transparent 50%);
 }
 
 .hero-content {
@@ -24,24 +26,21 @@
   z-index: 1;
 }
 
-/* =========================
-   HERO TEXT
-========================= */
-
 .hero-eyebrow {
   font-family: 'Share Tech Mono', monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.3em;
+  font-size: .72rem;
+  letter-spacing: .3em;
   color: var(--accent);
   text-transform: uppercase;
   margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: .75rem;
 }
 
 .hero-eyebrow::before {
-  content: "";
+  content: '';
+  display: inline-block;
   width: 2rem;
   height: 1px;
   background: var(--accent);
@@ -68,10 +67,6 @@
   line-height: 1.7;
 }
 
-/* =========================
-   HERO STATS
-========================= */
-
 .hero-stats {
   display: flex;
   flex-wrap: wrap;
@@ -93,15 +88,11 @@
 
 .stat-label {
   font-family: 'Share Tech Mono', monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
+  font-size: .65rem;
+  letter-spacing: .15em;
   color: var(--muted);
   text-transform: uppercase;
 }
-
-/* =========================
-   HERO ACTIONS
-========================= */
 
 .hero-actions {
   display: flex;
@@ -109,51 +100,79 @@
   gap: 1rem;
 }
 
-/* =========================
-   FILTERS
-========================= */
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: .8rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .75rem 1.5rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all .2s ease;
+  text-decoration: none;
+}
+
+.cta-btn--solid {
+  background: var(--accent);
+  color: var(--bg);
+  border: 1px solid var(--accent);
+  font-weight: 700;
+}
+
+.cta-btn--solid:hover {
+  background: #33d4ff;
+  text-decoration: none;
+}
+
+.cta-btn--ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.cta-btn--ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+}
 
 .filters {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: .5rem;
   margin-bottom: 2rem;
 }
 
 .filter-btn {
   font-family: 'Share Tech Mono', monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
+  font-size: .72rem;
+  letter-spacing: .1em;
   text-transform: uppercase;
-  padding: 0.4rem 0.9rem;
+  padding: .4rem .9rem;
   border: 1px solid var(--border);
   border-radius: 2rem;
   background: transparent;
   color: var(--muted);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all .2s ease;
 }
 
 .filter-btn:hover,
 .filter-btn.active {
-  background: rgba(0, 200, 255, 0.12);
+  background: rgba(0,200,255,0.12);
   border-color: var(--accent);
   color: var(--accent);
 }
-
-/* =========================
-   GRID
-========================= */
 
 .spacecraft-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5rem;
 }
-
-/* =========================
-   CARD
-========================= */
 
 .spacecraft-card {
   background: var(--surface);
@@ -163,19 +182,19 @@
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
 
 .spacecraft-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(0, 200, 255, 0.4);
-  box-shadow: 0 8px 32px rgba(0, 200, 255, 0.1);
+  border-color: rgba(0,200,255,0.4);
+  box-shadow: 0 8px 32px rgba(0,200,255,0.1);
 }
 
 .card-image {
   height: 160px;
-  background: var(--surface2);
   overflow: hidden;
+  background: var(--surface2);
   position: relative;
 }
 
@@ -183,68 +202,61 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform .3s ease;
 }
 
 .spacecraft-card:hover .card-image img {
   transform: scale(1.05);
 }
 
-/* =========================
-   STATUS BADGES (FIXED CONTRAST)
-========================= */
-
 .card-status {
   position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
+  top: .75rem;
+  right: .75rem;
   font-family: 'Share Tech Mono', monospace;
-  font-size: 0.62rem;
-  letter-spacing: 0.1em;
+  font-size: .62rem;
+  letter-spacing: .1em;
   text-transform: uppercase;
-  padding: 0.25em 0.6em;
+  padding: .25em .6em;
   border-radius: 2rem;
 }
 
 .status-active {
-  background: rgba(0, 230, 100, 0.18);
+  background: rgba(0,230,100,0.18);
   color: #00ff88;
-  border: 1px solid rgba(0, 230, 100, 0.4);
+  border: 1px solid rgba(0,230,100,0.4);
 }
 
 .status-retired {
-  background: rgba(150, 150, 150, 0.2);
+  background: rgba(150,150,150,0.2);
   color: #e0e0e0;
-  border: 1px solid rgba(150, 150, 150, 0.3);
+  border: 1px solid rgba(150,150,150,0.3);
 }
 
 .status-deorbited {
-  background: rgba(249, 115, 22, 0.2);
+  background: rgba(249,115,22,0.2);
   color: #ffb07a;
-  border: 1px solid rgba(249, 115, 22, 0.3);
+  border: 1px solid rgba(249,115,22,0.3);
 }
 
 .status-development {
-  background: rgba(180, 120, 255, 0.2);
+  background: rgba(180,120,255,0.2);
   color: #d6b3ff;
-  border: 1px solid rgba(180, 120, 255, 0.3);
+  border: 1px solid rgba(180,120,255,0.3);
 }
-
-/* =========================
-   CARD BODY
-========================= */
 
 .card-body {
   padding: 1.25rem;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: .5rem;
 }
 
 .card-type {
   font-family: 'Share Tech Mono', monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
+  font-size: .65rem;
+  letter-spacing: .15em;
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -254,46 +266,40 @@
   font-size: 1rem;
   font-weight: 700;
   color: var(--heading);
+  line-height: 1.3;
 }
 
 .card-agency {
-  font-size: 0.82rem;
+  font-size: .82rem;
   color: var(--muted);
 }
 
 .card-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: .5rem;
+  margin-top: .25rem;
 }
 
 .card-meta-item {
   font-family: 'Share Tech Mono', monospace;
-  font-size: 0.7rem;
+  font-size: .7rem;
   background: var(--surface2);
   border: 1px solid var(--border);
   border-radius: 4px;
-  padding: 0.2rem 0.5rem;
+  padding: .2rem .5rem;
   color: var(--text);
 }
 
-/* =========================
-   FOOTER CARD
-========================= */
-
 .card-footer {
-  padding: 0.75rem 1.25rem;
+  padding: .75rem 1.25rem;
   border-top: 1px solid var(--border);
-  font-size: 0.78rem;
+  font-size: .78rem;
   color: var(--muted);
   font-style: italic;
 }
 
-/* =========================
-   MODAL
-========================= */
-
-.modal-overlay {
+.dialog-overlay {
   display: none;
   position: fixed;
   inset: 0;
@@ -305,11 +311,11 @@
   padding: 1.5rem;
 }
 
-.modal-overlay.open {
+.dialog-overlay.open {
   display: flex;
 }
 
-.modal {
+.spacecraft-dialog {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -319,18 +325,146 @@
   overflow-y: auto;
 }
 
-/* prevent scroll when modal open */
-body.modal-open {
+.dialog-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.dialog-title {
+  font-family: Orbitron, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--heading);
+}
+
+.dialog-subtitle {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: .7rem;
+  letter-spacing: .12em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-top: .25rem;
+}
+
+.dialog-close {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--accent);
+  border-radius: var(--radius);
+  padding: .3rem .6rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all .2s ease;
+  flex-shrink: 0;
+}
+
+.dialog-close:hover {
+  border-color: var(--accent);
+}
+
+.dialog-image {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  background: var(--surface2);
+}
+
+.dialog-body {
+  padding: 1.5rem;
+}
+
+.dialog-desc {
+  font-size: .95rem;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.dialog-specs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.spec-item {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: .75rem 1rem;
+}
+
+.spec-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: .65rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: .25rem;
+}
+
+.spec-value {
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--heading);
+}
+
+.dialog-notable {
+  margin-top: 1rem;
+  padding: .75rem 1rem;
+  background: rgba(0,200,255,0.06);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: .88rem;
+  color: var(--text);
+}
+
+.dialog-notable strong {
+  color: var(--accent);
+}
+
+.dialog-fav-btn {
+  margin-top: 1.25rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.dialog-fav-btn.saved {
+  background: transparent;
+  border: 1px solid var(--accent2);
+  color: var(--accent2);
+}
+
+.fav-star {
+  color: var(--accent2);
+  font-size: .9rem;
+}
+
+.card-image img.nasa-loading {
+  opacity: .5;
+  transition: opacity .3s ease-in-out;
+}
+
+.card-image img.nasa-loaded {
+  opacity: 1;
+}
+
+.dialog-specs .card-status {
+  position: static;
+  font-size: .75rem;
+  display: inline-block;
+}
+
+body.dialog-open {
   overflow: hidden;
 }
 
-/* =========================
-   MOBILE
-========================= */
-
 @media (max-width: 768px) {
-  .hero-stats {
-    gap: 1rem;
+  .dialog-specs {
+    grid-template-columns: 1fr;
   }
 
   .spacecraft-grid {
