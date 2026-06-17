@@ -106,8 +106,9 @@ nav {
 /* ✅ FIXED (contrast issue solved) */
 .nav-links a:hover,
 .nav-links a.active {
-  color: var(--bg);
-  background: var(--accent);
+  color:var(--bg);
+  background:rgba(0,200,255,0.25);
+  text-decoration:none;
 }
 
 .nav-links a[aria-current="page"] {
