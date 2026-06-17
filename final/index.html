@@ -10,8 +10,13 @@
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/index.css">
   <title>Beyond Earth — A Spacecraft Encyclopedia</title>
+  <meta name="description" content="Explore humanity's greatest machines - an interactive encyclopedia of spacecraft from Sputnik to Starship.">
+  <meta name="author" content="Kizza Fredrich Kibalama">
+  <meta property="og:title" content="Beyond Earth - Spacecraft Encyclopedia">
+  <meta property="og:description" content="Explore humanity's greatest machines in an interactive encyclopedia of spacecraft from Sputnik to Starship.">
+  <meta property="og:image" content="https://kizzafredrichkibalama.github.io/wdd231/final/images/og-image.jpg">
+  <meta property="og:url" content="https://kizzafredrichkibalama.github.io/wdd231/final/">
 </head>
-
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -27,67 +32,47 @@
     </nav>
   </header>
 
-  <main id="main-content">
-
-    <!-- HERO MOVED INSIDE MAIN -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-bg" aria-hidden="true"></div>
-
-      <div class="container hero-content">
-        <p class="hero-eyebrow">A Spacecraft Encyclopedia</p>
-
-        <!-- ONLY H1 (now correctly inside main) -->
-        <h1 id="hero-title" class="hero-title">
-          Beyond<br><span>Earth</span>
-        </h1>
-
-        <p class="hero-sub">
-          From Sputnik's first beep in 1957 to Starship's thunderous ascent — explore the machines that extended humanity's reach into the cosmos.
-        </p>
-
-        <div class="hero-stats">
-          <div class="stat-item">
-            <span class="stat-num" id="stat-total">—</span>
-            <span class="stat-label">Spacecraft</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-num" id="stat-active">—</span>
-            <span class="stat-label">Still Active</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-num" id="stat-agencies">—</span>
-            <span class="stat-label">Space Agencies</span>
-          </div>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container hero-content">
+      <p class="hero-eyebrow">A Spacecraft Encyclopedia</p>
+      <h1 id="hero-title" class="hero-title">Beyond<br><span>Earth</span></h1>
+      <p class="hero-sub">From Sputnik's first beep in 1957 to Starship's thunderous ascent — explore the machines that extended humanity's reach into the cosmos.</p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num" id="stat-total">—</span>
+          <span class="stat-label">Spacecraft</span>
         </div>
-
-        <div class="hero-actions">
-          <a href="#spacecraft" class="btn btn-primary">Explore Spacecraft</a>
-          <a href="history.html" class="btn btn-outline">View History</a>
+        <div class="stat-item">
+          <span class="stat-num" id="stat-active">—</span>
+          <span class="stat-label">Still Active</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" id="stat-agencies">—</span>
+          <span class="stat-label">Space Agencies</span>
         </div>
       </div>
-    </section>
+      <div class="hero-actions">
+        <a href="#spacecraft" class="btn btn-primary">Explore Spacecraft</a>
+        <a href="history.html" class="btn btn-outline">View History</a>
+      </div>
+    </div>
+  </section>
 
-    <!-- REST OF CONTENT -->
+  <main id="main-content">
     <section id="spacecraft" aria-labelledby="grid-title">
       <div class="container">
         <p class="section-label">The Collection</p>
         <h2 id="grid-title" class="section-title">Spacecraft <span>Database</span></h2>
-
-        <p class="section-desc">
-          Browse <span id="spacecraft-count">18</span> spacecraft from across the history of space exploration.
-        </p>
-
+        <p class="section-desc">Browse <span id="spacecraft-count">18</span> spacecraft from across the history of space exploration. Click any card to see full mission details and save your favorites.</p>
         <div id="filters" class="filters" role="group" aria-label="Filter by type"></div>
-
         <div id="spacecraft-grid" class="spacecraft-grid" aria-live="polite">
           <p class="loading">Loading spacecraft data…</p>
         </div>
       </div>
     </section>
-
   </main>
 
-  <!-- MODAL -->
   <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
     <div class="modal">
       <div class="modal-header">
@@ -97,9 +82,7 @@
         </div>
         <button id="modal-close" class="modal-close" aria-label="Close dialog">✕</button>
       </div>
-
       <img id="modal-image" class="modal-image" src="images/og-image.jpg" alt="Spacecraft" width="680" height="240">
-
       <div class="modal-body">
         <p id="modal-desc" class="modal-desc"></p>
         <div id="modal-specs" class="modal-specs"></div>
@@ -114,8 +97,30 @@
       <div class="footer-grid">
         <div>
           <div class="footer-brand">Beyond <span>Earth</span></div>
-          <p class="footer-desc">An educational encyclopedia of spacecraft — past, present, and future.</p>
+          <p class="footer-desc">An educational encyclopedia of spacecraft — past, present, and future. Built as a BYU-Idaho WDD 231 final project.</p>
         </div>
+        <nav aria-label="Footer navigation">
+          <p class="footer-heading">Pages</p>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="history.html">History</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="attributions.html">Attributions</a></li>
+          </ul>
+        </nav>
+        <div>
+          <p class="footer-heading">Resources</p>
+          <ul class="footer-links">
+            <li><a href="https://www.nasa.gov" target="_blank" rel="noopener">NASA</a></li>
+            <li><a href="https://www.spacex.com" target="_blank" rel="noopener">SpaceX</a></li>
+            <li><a href="https://www.esa.int" target="_blank" rel="noopener">ESA</a></li>
+            <li><a href="your-video-link-here" target="_blank" rel="noopener">Demo Video</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> Beyond Earth — Kizza Fredrich Kibalama — BYU-Idaho WDD 231</span>
+        <span>Data sourced from public space agency records</span>
       </div>
     </div>
   </footer>
