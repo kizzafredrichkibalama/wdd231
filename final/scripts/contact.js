@@ -16,12 +16,12 @@
  *  - Template literals
  */
 
-//  DOM REFERENCES 
+// ── DOM REFERENCES ────────────────────────────────────────────
 const favList  = document.getElementById('fav-list');
 const favEmpty = document.getElementById('fav-empty');
 const favCount = document.getElementById('fav-count');
 
-//  READ FAVORITES FROM LOCAL STORAGE 
+// ── READ FAVORITES FROM LOCAL STORAGE ────────────────────────
 function getFavorites() {
   try {
     const raw = localStorage.getItem('favorites');
@@ -36,7 +36,7 @@ function removeFavorite(id) {
   localStorage.setItem('favorites', JSON.stringify(updated));
 }
 
-//  RENDER FAVORITES LIST 
+// ── RENDER FAVORITES LIST ─────────────────────────────────────
 function renderFavorites(allSpacecraft) {
   const ids  = getFavorites();
   // ARRAY METHOD: .filter() keeps only spacecraft whose IDs are saved
@@ -47,11 +47,11 @@ function renderFavorites(allSpacecraft) {
 
   if (favs.length === 0) {
     favList.innerHTML    = '';
-    favEmpty.style.display = 'block';
+    favEmpty.classList.add('visible');
     return;
   }
 
-  favEmpty.style.display = 'none';
+  favEmpty.classList.remove('visible');
 
   // ARRAY METHOD + TEMPLATE LITERAL: .map() builds each list item
   favList.innerHTML = favs.map(s => `
@@ -71,7 +71,7 @@ function renderFavorites(allSpacecraft) {
   });
 }
 
-//  ASYNC DATA LOAD 
+// ── ASYNC DATA LOAD ───────────────────────────────────────────
 async function init() {
   try {
     const response = await fetch('./data/spacecraft.json');

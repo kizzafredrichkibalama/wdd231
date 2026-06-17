@@ -19,7 +19,7 @@
  *  - Template literals
  */
 
-//  READ FORM DATA FROM URL 
+// ── READ FORM DATA FROM URL ───────────────────────────────────
 // window.location.search returns the "?name=...&email=..." part of the URL
 const params = new URLSearchParams(window.location.search);
 

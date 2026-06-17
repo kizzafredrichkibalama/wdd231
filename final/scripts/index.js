@@ -14,13 +14,13 @@
  *  8. MODAL DIALOG — open/close with full accessibility
  */
 
-//  STATE 
+// ── STATE ────────────────────────────────────────────────────
 let allSpacecraft   = [];
 let activeFilter    = localStorage.getItem('filter-choice') || 'All';
 let currentSpacecraftId = null;
 let nasaImagesCache = {}; // Cache NASA image results
 
-//  DOM REFERENCES 
+// ── DOM REFERENCES ───────────────────────────────────────────
 const grid          = document.getElementById('spacecraft-grid');
 const filtersEl     = document.getElementById('filters');
 const countEl       = document.getElementById('spacecraft-count');
@@ -34,7 +34,7 @@ const modalNotable  = document.getElementById('modal-notable');
 const modalFavBtn   = document.getElementById('modal-fav-btn');
 const closeBtn      = document.getElementById('modal-close');
 
-//  HELPER: status → CSS class 
+// ── HELPER: status → CSS class ────────────────────────────────
 function getStatusClass(status) {
   const map = {
     'Active'         : 'status-active',
@@ -46,7 +46,7 @@ function getStatusClass(status) {
   return map[status] || 'status-retired';
 }
 
-//  LOCAL STORAGE: Favorites 
+// ── LOCAL STORAGE: Favorites ──────────────────────────────────
 function getFavorites() {
   try {
     const raw = localStorage.getItem('favorites');
@@ -72,7 +72,7 @@ function toggleFavorite(id) {
   }
 }
 
-//  FETCH IMAGES FROM NASA API 
+// ── FETCH IMAGES FROM NASA API ────────────────────────────────
 /**
  * NASA IMAGES API INTEGRATION
  * 
@@ -131,7 +131,7 @@ async function fetchNasaImage(searchTerm) {
   }
 }
 
-//  BUILD CARD (TEMPLATE LITERAL) 
+// ── BUILD CARD (TEMPLATE LITERAL) ────────────────────────────
 // This function gets called by .map() for each spacecraft
 // It can use either NASA API image or local fallback image
 
@@ -168,7 +168,7 @@ function buildCard(s) {
     </article>`;
 }
 
-//  RENDER GRID (DOM MANIPULATION + ARRAY METHODS) 
+// ── RENDER GRID (DOM MANIPULATION + ARRAY METHODS) ────────────
 function renderGrid(spacecraft) {
   if (spacecraft.length === 0) {
     grid.innerHTML = '<p class="loading">No spacecraft match this filter.</p>';
@@ -189,10 +189,12 @@ function renderGrid(spacecraft) {
         // Update the card's image if we got a NASA image
         const card = grid.querySelector(`[data-id="${s.id}"] img`);
         if (card) {
+          card.classList.add('nasa-loading');
           card.src = nasaImageUrl;
-          card.style.transition = 'opacity 0.3s'; // Smooth fade in
-          card.style.opacity = '0.5';
-          setTimeout(() => { card.style.opacity = '1'; }, 10);
+          setTimeout(() => { 
+            card.classList.remove('nasa-loading');
+            card.classList.add('nasa-loaded');
+          }, 10);
         }
       }
     });
@@ -209,7 +211,7 @@ function renderGrid(spacecraft) {
   });
 }
 
-//  BUILD FILTER BUTTONS 
+// ── BUILD FILTER BUTTONS ──────────────────────────────────────
 function buildFilters(types) {
   filtersEl.innerHTML = types.map(t => `
     <button class="filter-btn${t === activeFilter ? ' active' : ''}"
@@ -232,7 +234,7 @@ function buildFilters(types) {
   });
 }
 
-//  MODAL: OPEN 
+// ── MODAL: OPEN ───────────────────────────────────────────────
 function openModal(s) {
   currentSpacecraftId = s.id;
 
@@ -252,21 +254,21 @@ function openModal(s) {
   modalSpecs.innerHTML = `
     <div class="spec-item"><div class="spec-label">Launched</div><div class="spec-value">${s.launched}</div></div>
     <div class="spec-item"><div class="spec-label">Status</div><div class="spec-value">
-      <span class="card-status ${sc}" style="position:static;font-size:.75rem;">${s.status}</span></div></div>
+      <span class="card-status ${sc}">${s.status}</span></div></div>
     <div class="spec-item"><div class="spec-label">Mass</div><div class="spec-value">${s.mass_kg.toLocaleString()} kg</div></div>
     <div class="spec-item"><div class="spec-label">Crew</div><div class="spec-value">${s.crew === 0 ? 'Uncrewed' : s.crew}</div></div>`;
   updateFavBtn();
   overlay.classList.add('open');
   overlay.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
+  document.body.classList.add('modal-open');
   closeBtn.focus();
 }
 
-//  MODAL: CLOSE 
+// ── MODAL: CLOSE ──────────────────────────────────────────────
 function closeModal() {
   overlay.classList.remove('open');
   overlay.setAttribute('aria-hidden', 'true');
-  document.body.style.overflow = '';
+  document.body.classList.remove('modal-open');
   currentSpacecraftId = null;
 }
 
@@ -276,7 +278,7 @@ function updateFavBtn() {
   modalFavBtn.classList.toggle('saved', saved);
 }
 
-//  DATA INTEGRATION: LOCAL JSON + NASA API 
+// ── DATA INTEGRATION: LOCAL JSON + NASA API ───────────────────
 /**
  * HOW THIS WORKS:
  *
@@ -335,7 +337,7 @@ async function init() {
   }
 }
 
-//  EVENT LISTENERS 
+// ── EVENT LISTENERS ───────────────────────────────────────────
 closeBtn.addEventListener('click', closeModal);
 overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
 document.addEventListener('keydown', e => {
@@ -350,5 +352,5 @@ modalFavBtn.addEventListener('click', function () {
   if (starEl) starEl.textContent = nowSaved ? '★' : '';
 });
 
-//  START 
+// ── START ──────────────────────────────────────────────────────
 init();
