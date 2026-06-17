@@ -3,12 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Barlow:wght@300;400;600&display=swap" rel="stylesheet">
-
   <link rel="icon" href="images/favicon.svg">
 
   <link rel="stylesheet" href="styles/style.css">
@@ -32,13 +29,10 @@
     <nav aria-label="Main navigation">
       <a href="index.html" class="nav-brand">Beyond <span>Earth</span></a>
 
-      <button id="hamburger"
-        class="hamburger"
+      <button id="hamburger" class="hamburger"
         aria-controls="nav-links"
         aria-expanded="false"
-        aria-label="Toggle navigation">
-        ☰
-      </button>
+        aria-label="Toggle navigation menu">☰</button>
 
       <ul id="nav-links" class="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -50,12 +44,11 @@
 
   <main id="main-content">
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <section class="hero-section" aria-labelledby="hero-title">
       <div class="hero-bg" aria-hidden="true"></div>
 
       <div class="site-wrapper hero-content">
-
         <p class="hero-eyebrow">A Spacecraft Encyclopedia</p>
 
         <h1 id="hero-title" class="hero-title">
@@ -85,14 +78,13 @@
         </div>
 
         <div class="hero-actions">
-          <a href="#spacecraft" class="cta-btn cta-btn--primary">Explore Spacecraft</a>
-          <a href="history.html" class="cta-btn cta-btn--outline">View History</a>
+          <a href="#spacecraft" class="cta-btn cta-btn-primary">Explore Spacecraft</a>
+          <a href="history.html" class="cta-btn cta-btn-outline">View History</a>
         </div>
-
       </div>
     </section>
 
-    <!-- SPACECRAFT SECTION -->
+    <!-- SPACECRAFT -->
     <section id="spacecraft" aria-labelledby="grid-title">
       <div class="site-wrapper">
 
@@ -103,10 +95,10 @@
         </h2>
 
         <p class="section-desc">
-          Browse <span id="spacecraft-count">18</span> spacecraft from across history.
+          Browse <span id="spacecraft-count">18</span> spacecraft from across the history of space exploration.
         </p>
 
-        <div id="filters" class="filters"></div>
+        <div id="filters" class="filters" role="group"></div>
 
         <div id="spacecraft-grid" class="spacecraft-grid" aria-live="polite">
           <p class="loading">Loading spacecraft data…</p>
@@ -117,9 +109,8 @@
 
   </main>
 
-  <!-- DIALOG (MODAL REPLACEMENT) -->
-  <div id="modal-overlay"
-    class="dialog"
+  <!-- MODAL -->
+  <div id="modal-overlay" class="dialog-box"
     role="dialog"
     aria-modal="true"
     aria-labelledby="modal-title"
@@ -127,23 +118,27 @@
 
     <div class="dialog-inner">
 
-      <div class="dialog-header">
+      <div class="modal-header">
         <div>
-          <h2 id="modal-title">Spacecraft Details</h2>
-          <p id="modal-subtitle"></p>
+          <h2 id="modal-title" class="modal-title">Spacecraft Details</h2>
+          <p id="modal-subtitle" class="modal-subtitle"></p>
         </div>
 
-        <button id="modal-close" aria-label="Close dialog">✕</button>
+        <button id="modal-close" class="modal-close" aria-label="Close dialog">✕</button>
       </div>
 
-      <img id="modal-image" src="images/og-image.jpg" alt="Spacecraft">
+      <img id="modal-image" class="modal-image"
+        src="images/og-image.jpg"
+        alt="Spacecraft"
+        width="680"
+        height="240">
 
-      <div class="dialog-body">
-        <p id="modal-desc"></p>
-        <div id="modal-specs"></div>
-        <div id="modal-notable"></div>
+      <div class="modal-body">
+        <p id="modal-desc" class="modal-desc"></p>
+        <div id="modal-specs" class="modal-specs"></div>
+        <div id="modal-notable" class="modal-notable"></div>
 
-        <button class="cta-btn cta-btn--primary">
+        <button id="modal-fav-btn" class="cta-btn cta-btn-primary">
           ☆ Save to Favorites
         </button>
       </div>
@@ -151,10 +146,11 @@
     </div>
   </div>
 
+  <!-- FOOTER -->
   <footer>
     <div class="site-wrapper">
-
       <div class="footer-grid">
+
         <div>
           <div class="footer-brand">Beyond <span>Earth</span></div>
           <p class="footer-desc">
@@ -178,15 +174,16 @@
             <li><a href="https://www.nasa.gov" target="_blank" rel="noopener">NASA</a></li>
             <li><a href="https://www.spacex.com" target="_blank" rel="noopener">SpaceX</a></li>
             <li><a href="https://www.esa.int" target="_blank" rel="noopener">ESA</a></li>
+            <li><a href="#">Demo Video</a></li>
           </ul>
         </div>
+
       </div>
 
       <div class="footer-bottom">
         <span>&copy; <span id="year"></span> Beyond Earth — WDD 231</span>
         <span>Data sourced from public space agencies</span>
       </div>
-
     </div>
   </footer>
 
