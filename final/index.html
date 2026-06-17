@@ -32,46 +32,74 @@
     </nav>
   </header>
 
-  <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-bg" aria-hidden="true"></div>
-    <div class="container hero-content">
-      <p class="hero-eyebrow">A Spacecraft Encyclopedia</p>
-      <h1 id="hero-title" class="hero-title">Beyond<br><span>Earth</span></h1>
-      <p class="hero-sub">From Sputnik's first beep in 1957 to Starship's thunderous ascent — explore the machines that extended humanity's reach into the cosmos.</p>
-      <div class="hero-stats">
-        <div class="stat-item">
-          <span class="stat-num" id="stat-total">—</span>
-          <span class="stat-label">Spacecraft</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num" id="stat-active">—</span>
-          <span class="stat-label">Still Active</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num" id="stat-agencies">—</span>
-          <span class="stat-label">Space Agencies</span>
-        </div>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-bg" aria-hidden="true"></div>
+
+  <div class="container hero-content">
+
+    <p class="hero-eyebrow">A Spacecraft Encyclopedia</p>
+
+    <!-- H1 stays here (GOOD for SEO indexing) -->
+    <h1 id="hero-title" class="hero-title">
+      Beyond<br><span>Earth</span>
+    </h1>
+
+    <p class="hero-sub">
+      From Sputnik's first beep in 1957 to Starship's thunderous ascent — explore the machines that extended humanity's reach into the cosmos.
+    </p>
+
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num" id="stat-total">—</span>
+        <span class="stat-label">Spacecraft</span>
       </div>
-      <div class="hero-actions">
-        <a href="#spacecraft" class="btn btn-primary">Explore Spacecraft</a>
-        <a href="history.html" class="btn btn-outline">View History</a>
+
+      <div class="stat-item">
+        <span class="stat-num" id="stat-active">—</span>
+        <span class="stat-label">Still Active</span>
       </div>
+
+      <div class="stat-item">
+        <span class="stat-num" id="stat-agencies">—</span>
+        <span class="stat-label">Space Agencies</span>
+      </div>
+    </div>
+
+    <div class="hero-actions">
+      <a href="#spacecraft" class="btn btn-primary">Explore Spacecraft</a>
+      <a href="history.html" class="btn btn-outline">View History</a>
+    </div>
+
+  </div>
+</section>
+
+<main id="main-content">
+
+  <section id="spacecraft" aria-labelledby="grid-title">
+    <div class="container">
+
+      <!-- FIXED: this was incorrectly an H1 before (audit error) -->
+      <p class="section-label">The Collection</p>
+
+      <h2 id="grid-title" class="section-title">
+        Spacecraft <span>Database</span>
+      </h2>
+
+      <p class="section-desc">
+        Browse <span id="spacecraft-count">18</span> spacecraft from across the history of space exploration.
+        Click any card to see full mission details and save your favorites.
+      </p>
+
+      <div id="filters" class="filters" role="group" aria-label="Filter by type"></div>
+
+      <div id="spacecraft-grid" class="spacecraft-grid" aria-live="polite">
+        <p class="loading">Loading spacecraft data…</p>
+      </div>
+
     </div>
   </section>
 
-  <main id="main-content">
-    <section id="spacecraft" aria-labelledby="grid-title">
-      <div class="container">
-        <h1 class="section-label">The Collection</h1>
-        <h2 id="grid-title" class="section-title">Spacecraft <span>Database</span></h2>
-        <p class="section-desc">Browse <span id="spacecraft-count">18</span> spacecraft from across the history of space exploration. Click any card to see full mission details and save your favorites.</p>
-        <div id="filters" class="filters" role="group" aria-label="Filter by type"></div>
-        <div id="spacecraft-grid" class="spacecraft-grid" aria-live="polite">
-          <p class="loading">Loading spacecraft data…</p>
-        </div>
-      </div>
-    </section>
-  </main>
+</main>
 
   <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
     <div class="modal">
