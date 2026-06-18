@@ -189,12 +189,10 @@ function renderGrid(spacecraft) {
         // Update the card's image if we got a NASA image
         const card = grid.querySelector(`[data-id="${s.id}"] img`);
         if (card) {
-          card.classList.add('nasa-loading');
           card.src = nasaImageUrl;
-          setTimeout(() => { 
-            card.classList.remove('nasa-loading');
-            card.classList.add('nasa-loaded');
-          }, 10);
+          card.style.transition = 'opacity 0.3s'; // Smooth fade in
+          card.style.opacity = '0.5';
+          setTimeout(() => { card.style.opacity = '1'; }, 10);
         }
       }
     });
@@ -254,13 +252,13 @@ function openModal(s) {
   modalSpecs.innerHTML = `
     <div class="spec-item"><div class="spec-label">Launched</div><div class="spec-value">${s.launched}</div></div>
     <div class="spec-item"><div class="spec-label">Status</div><div class="spec-value">
-      <span class="card-status ${sc}">${s.status}</span></div></div>
+      <span class="card-status ${sc}" >${s.status}</span></div></div>
     <div class="spec-item"><div class="spec-label">Mass</div><div class="spec-value">${s.mass_kg.toLocaleString()} kg</div></div>
     <div class="spec-item"><div class="spec-label">Crew</div><div class="spec-value">${s.crew === 0 ? 'Uncrewed' : s.crew}</div></div>`;
   updateFavBtn();
   overlay.classList.add('open');
   overlay.setAttribute('aria-hidden', 'false');
-  document.body.classList.add('modal-open');
+  document.body.style.overflow = 'hidden';
   closeBtn.focus();
 }
 
@@ -268,7 +266,7 @@ function openModal(s) {
 function closeModal() {
   overlay.classList.remove('open');
   overlay.setAttribute('aria-hidden', 'true');
-  document.body.classList.remove('modal-open');
+  document.body.style.overflow = '';
   currentSpacecraftId = null;
 }
 
