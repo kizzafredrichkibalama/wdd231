@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Barlow:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/favicon.svg">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/contact.css">
+  <title>Message Received - Beyond Earth</title>
+  <meta name="description" content="Your message was received by Beyond Earth spacecraft encyclopedia.">
+  <meta name="author" content="Kizza Fredrich Kibalama">
+  <meta property="og:title" content="Message Received - Beyond Earth">
+  <meta property="og:description" content="Thank you! Your message has been successfully received. We appreciate your feedback about spacecraft.">
+  <meta property="og:image" content="https://kizzafredrichkibalama.github.io/wdd231/final/images/og-image.jpg">
+  <meta property="og:url" content="https://kizzafredrichkibalama.github.io/wdd231/final/contact-success.html">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header>
+    <nav aria-label="Main navigation">
+      <a href="index.html" class="nav-brand">Beyond <span>Earth</span></a>
+      <button id="hamburger" class="hamburger" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+      <ul id="nav-links" class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="success-section" aria-labelledby="success-title">
+      <div class="container success-container">
+        <p class="section-label">Transmission Confirmed</p>
+        <h1 id="success-title" class="section-title">Message <span>Received</span></h1>
+        <p class="section-desc">Thank you for reaching out. Here is a summary of what you submitted:</p>
+        <div id="submission-data" class="submission-grid"></div>
+        <div class="success-actions">
+          <a href="contact.html" class="btn btn-outline">Back to Contact</a>
+          <a href="index.html" class="btn btn-primary">Explore Spacecraft</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> Beyond Earth — Kizza Fredrich Kibalama — BYU-Idaho WDD 231</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/helpers.js" defer></script>
+  <script src="scripts/contact-success.js" defer></script>
+</body>
+</html>
