@@ -32,34 +32,35 @@
     </nav>
   </header>
 
-  <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-bg" aria-hidden="true"></div>
-    <div class="container hero-content">
-      <p class="hero-eyebrow">A Spacecraft Encyclopedia</p>
-      <h1 id="hero-title" class="hero-title">Beyond<br><span>Earth</span></h1>
-      <p class="hero-sub">From Sputnik's first beep in 1957 to Starship's thunderous ascent — explore the machines that extended humanity's reach into the cosmos.</p>
-      <div class="hero-stats">
-        <div class="stat-item">
-          <span class="stat-num" id="stat-total">—</span>
-          <span class="stat-label">Spacecraft</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num" id="stat-active">—</span>
-          <span class="stat-label">Still Active</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num" id="stat-agencies">—</span>
-          <span class="stat-label">Space Agencies</span>
-        </div>
-      </div>
-      <div class="hero-actions">
-        <a href="#spacecraft" class="btn btn-primary">Explore Spacecraft</a>
-        <a href="history.html" class="btn btn-outline">View History</a>
-      </div>
-    </div>
-  </section>
-
+  <!-- MAIN now includes the hero section so the <h1> is inside the main landmark -->
   <main id="main-content">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <p class="hero-eyebrow">A Spacecraft Encyclopedia</p>
+        <h1 id="hero-title" class="hero-title">Beyond<br><span>Earth</span></h1>
+        <p class="hero-sub">From Sputnik's first beep in 1957 to Starship's thunderous ascent — explore the machines that extended humanity's reach into the cosmos.</p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-num" id="stat-total">—</span>
+            <span class="stat-label">Spacecraft</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num" id="stat-active">—</span>
+            <span class="stat-label">Still Active</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num" id="stat-agencies">—</span>
+            <span class="stat-label">Space Agencies</span>
+          </div>
+        </div>
+        <div class="hero-actions">
+          <a href="#spacecraft" class="btn btn-primary">Explore Spacecraft</a>
+          <a href="history.html" class="btn btn-outline">View History</a>
+        </div>
+      </div>
+    </section>
+
     <section id="spacecraft" aria-labelledby="grid-title">
       <div class="container">
         <p class="section-label">The Collection</p>
@@ -73,6 +74,7 @@
     </section>
   </main>
 
+  <!-- Modal and footer remain unchanged -->
   <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
     <div class="modal">
       <div class="modal-header">
