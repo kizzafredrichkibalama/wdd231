@@ -7,7 +7,7 @@
    FORM LAYOUT
    ======================================== */
 
-.form-layout {
+.contact-form-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
@@ -15,7 +15,7 @@
 }
 
 @media (max-width: 768px) {
-  .form-layout {
+  .contact-form-layout {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
@@ -40,12 +40,12 @@
   margin-bottom: 1.25rem;
 }
 
-/* FORM GROUPS */
-.form-group {
+/* FORM FIELDS */
+.form-field {
   margin-bottom: 1.25rem;
 }
 
-.form-group:last-of-type {
+.form-field:last-of-type {
   margin-bottom: 1.5rem;
 }
 
@@ -299,6 +299,11 @@ textarea {
   select,
   textarea {
     font-size: 16px; /* Prevents zoom on iOS */
+    min-height: 44px; /* Touch-friendly */
+  }
+
+  .form-field {
+    margin-bottom: 1.5rem;
   }
 
   .favorites-panel {
@@ -307,5 +312,13 @@ textarea {
 
   .fav-title {
     font-size: 0.9rem;
+  }
+
+  .footer-links a {
+    font-size: 0.88rem;
+    color: var(--muted);
+    transition: color 0.2s;
+    padding: 0.25rem 0;
+    display: block;
   }
 }

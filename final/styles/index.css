@@ -136,6 +136,7 @@
   background: rgba(0,200,255,0.1);
   border-color: var(--accent);
   color: var(--accent);
+  transform: translateY(-2px);
 }
 
 /* =========================
@@ -145,7 +146,7 @@
 .spacecraft-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 /* =========================
@@ -246,11 +247,14 @@
   font-size: 1rem;
   font-weight: 700;
   color: var(--heading);
+  line-height: 1.3;
 }
 
 .card-agency {
   font-size: .82rem;
   color: var(--muted);
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
 }
 
 .card-meta {
@@ -276,6 +280,7 @@
   font-size: .78rem;
   color: var(--muted);
   font-style: italic;
+  background: rgba(0, 200, 255, 0.02);
 }
 
 /* =========================
@@ -334,5 +339,15 @@ body.modal-open {
 @media (max-width: 768px) {
   .spacecraft-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .spacecraft-grid {
+    gap: 1.5rem;
+  }
+
+  .card-body {
+    padding: 1rem;
   }
 }
