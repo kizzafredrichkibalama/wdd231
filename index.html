@@ -13,7 +13,7 @@
   <meta name="description" content="Explore humanity's greatest machines - an interactive encyclopedia of spacecraft from Sputnik to Starship.">
   <meta name="author" content="Kizza Fredrich Kibalama">
   <meta property="og:title" content="Beyond Earth - Spacecraft Encyclopedia">
-  <meta property="og:description" content="Explore humanity's greatest machines in an interactive encyclopedia of spacecraft from Sputnik to Starship.">
+  <meta property="og:description" content="Explore humanity's greatest machines. Interactive guide to spacecraft from Sputnik to Starship.">
   <meta property="og:image" content="https://kizzafredrichkibalama.github.io/wdd231/final/images/og-image.jpg">
   <meta property="og:url" content="https://kizzafredrichkibalama.github.io/wdd231/final/">
 </head>
@@ -22,20 +22,17 @@
 
   <header>
     <nav aria-label="Main navigation">
-      <a href="index.html" class="nav-brand">Beyond <span>Earth</span></a>
+      <a href="index.html" class="nav-brand" aria-current="page">Beyond <span>Earth</span></a>
       <button id="hamburger" class="hamburger" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation menu">☰</button>
       <ul id="nav-links" class="nav-links">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html" aria-current="page">Home</a></li>
         <li><a href="history.html">History</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-
-
-  <main id="main-content">
-    <section class="hero" aria-labelledby="hero-title">
+  <section class="hero" aria-labelledby="hero-title">
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="container hero-content">
       <p class="hero-eyebrow">A Spacecraft Encyclopedia</p>
@@ -61,13 +58,15 @@
       </div>
     </div>
   </section>
+
+  <main id="main-content">
     <section id="spacecraft" aria-labelledby="grid-title">
       <div class="container">
         <p class="section-label">The Collection</p>
         <h2 id="grid-title" class="section-title">Spacecraft <span>Database</span></h2>
         <p class="section-desc">Browse <span id="spacecraft-count">18</span> spacecraft from across the history of space exploration. Click any card to see full mission details and save your favorites.</p>
         <div id="filters" class="filters" role="group" aria-label="Filter by type"></div>
-        <div id="spacecraft-grid" class="spacecraft-grid" aria-live="polite">
+        <div id="spacecraft-grid" class="spacecraft-grid" aria-live="polite" aria-atomic="true">
           <p class="loading">Loading spacecraft data…</p>
         </div>
       </div>
@@ -103,7 +102,7 @@
         <nav aria-label="Footer navigation">
           <p class="footer-heading">Pages</p>
           <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html" aria-current="page">Home</a></li>
             <li><a href="history.html">History</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="attributions.html">Attributions</a></li>
@@ -115,7 +114,7 @@
             <li><a href="https://www.nasa.gov" target="_blank" rel="noopener">NASA</a></li>
             <li><a href="https://www.spacex.com" target="_blank" rel="noopener">SpaceX</a></li>
             <li><a href="https://www.esa.int" target="_blank" rel="noopener">ESA</a></li>
-            <li><a href="" target="_blank" rel="noopener">Demo Video</a></li>
+            <li><a href="https://www.youtube.com/watch?v=OLLdwzmYhpo" target="_blank" rel="noopener">Demo Video</a></li>
           </ul>
         </div>
       </div>
