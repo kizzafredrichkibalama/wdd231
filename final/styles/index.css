@@ -117,7 +117,7 @@
   margin-bottom: 2rem;
 }
 
-.filter-btn {
+.filter-button {
   font-family: "Share Tech Mono", monospace;
   font-size: .72rem;
   letter-spacing: .1em;
@@ -131,8 +131,8 @@
   transition: all .2s;
 }
 
-.filter-btn:hover,
-.filter-btn.active {
+.filter-button:hover,
+.filter-button.active {
   background: rgba(0,200,255,0.1);
   border-color: var(--accent);
   color: var(--accent);

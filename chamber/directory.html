@@ -45,7 +45,7 @@
       <span>Kampala<br>Chamber of Commerce</span>
     </a>
 
-    <button id="menu-btn" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
+    <button id="menu-button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
       <span></span>
       <span></span>
       <span></span>
@@ -68,7 +68,7 @@
     <!-- Toggle between grid cards and list view -->
     <div class="directory-controls" role="group" aria-label="Choose display style">
       <span>View:</span>
-      <button id="grid-btn" class="view-btn active" aria-pressed="true">
+      <button id="grid-button" class="view-button active" aria-pressed="true">
         <!-- Grid icon -->
         <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor">
           <rect x="0" y="0" width="7" height="7"/><rect x="9" y="0" width="7" height="7"/>
@@ -76,7 +76,7 @@
         </svg>
         Grid
       </button>
-      <button id="list-btn" class="view-btn" aria-pressed="false">
+      <button id="list-button" class="view-button" aria-pressed="false">
         <!-- List icon -->
         <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor">
           <rect x="0" y="1" width="16" height="2.5"/>
@@ -87,8 +87,8 @@
       </button>
     </div>
 
-    <!-- directory.js populates this container -->
-    <div id="members-container" role="list" aria-label="Chamber member businesses" aria-live="polite"></div>
+    <!-- directory.js populates this wrap -->
+    <div id="members-wrap" role="list" aria-label="Chamber member businesses" aria-live="polite"></div>
 
   </main>
 

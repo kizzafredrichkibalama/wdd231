@@ -53,13 +53,13 @@ async function getWeather() {
     
     // Render forecast - get next 3 days (one per day at 12:00)
     if (forecastEl) {
-      let container = forecastEl.querySelector('.forecast-cards');
-      if (!container) {
-        container = document.createElement('div');
-        container.className = 'forecast-cards';
-        forecastEl.appendChild(container);
+      let wrap = forecastEl.querySelector('.forecast-cards');
+      if (!wrap) {
+        wrap = document.createElement('div');
+        wrap.className = 'forecast-cards';
+        forecastEl.appendChild(wrap);
       }
-      container.innerHTML = '';
+      wrap.innerHTML = '';
       
       // Group by date and get midday reading
       const byDate = {};
@@ -88,7 +88,7 @@ async function getWeather() {
           <img src="https://openweathermap.org/img/wn/${item.weather[0].icon}.png" alt="${item.weather[0].description}" width="40" height="40" loading="lazy">
           <p class="forecast-temp"><strong>${Math.round(item.main.temp_max)}°</strong> / ${Math.round(item.main.temp_min)}°</p>
         `;
-        container.appendChild(card);
+        wrap.appendChild(card);
       });
       console.log('Rendered forecast cards');
     }

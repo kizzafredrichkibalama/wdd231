@@ -35,7 +35,7 @@ function displayVisitorMessage() {
 
 // ===== RENDER ATTRACTION CARDS =====
 function renderAttractions() {
-  const container = document.getElementById('attractions-container');
+  const wrap = document.getElementById('attractions-wrap');
   
   attractions.forEach((attraction, index) => {
     const card = document.createElement('article');
@@ -56,10 +56,10 @@ function renderAttractions() {
       </figure>
       <address>${attraction.address}</address>
       <p class="attraction-description">${attraction.description}</p>
-      <button class="learn-more-btn" aria-label="Learn more about ${attraction.title}">Learn More</button>
+      <button class="learn-more-button" aria-label="Learn more about ${attraction.title}">Learn More</button>
     `;
 
-    container.appendChild(card);
+    wrap.appendChild(card);
   });
 }
 

@@ -48,9 +48,9 @@ function renderFavorites() {
     </li>
   `).join('');
 
-  favList.querySelectorAll('.fav-remove').forEach(btn => {
-    btn.addEventListener('click', () => {
-      removeFavorite(parseInt(btn.dataset.id));
+  favList.querySelectorAll('.fav-remove').forEach(button => {
+    button.addEventListener('click', () => {
+      removeFavorite(parseInt(button.dataset.id));
       renderFavorites();
     });
   });

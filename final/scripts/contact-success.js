@@ -26,9 +26,9 @@ const params = new URLSearchParams(window.location.search);
 // The fields we expect — must match the `name` attributes in contact.html
 const fields = ['name', 'email', 'category', 'message'];
 
-const container = document.getElementById('submission-data');
+const wrap = document.getElementById('submission-data');
 
-if (container) {
+if (wrap) {
   fields.forEach(fieldName => {
     // Get the value submitted for this field (or 'N/A' if missing)
     const value = params.get(fieldName) || 'N/A';
@@ -44,6 +44,6 @@ if (container) {
         ${value}
       </div>`;
 
-    container.appendChild(div); // DOM MANIPULATION: add to page
+    wrap.appendChild(div); // DOM MANIPULATION: add to page
   });
 }

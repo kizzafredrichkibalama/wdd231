@@ -1,8 +1,8 @@
 // directory.js - fetch members from JSON and display as grid or list
 
-const container  = document.getElementById('members-container');
-const gridBtn    = document.getElementById('grid-btn');
-const listBtn    = document.getElementById('list-btn');
+const wrap  = document.getElementById('members-wrap');
+const gridbutton    = document.getElementById('grid-button');
+const listbutton    = document.getElementById('list-button');
 
 // Membership level number maps to a label and CSS class
 const LEVELS = {
@@ -54,38 +54,38 @@ async function loadMembers() {
     if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
     const data = await response.json();
 
-    container.setAttribute('role', 'list');
-    container.innerHTML = '';
+    wrap.setAttribute('role', 'list');
+    wrap.innerHTML = '';
 
     data.members.forEach(member => {
-      container.appendChild(buildCard(member));
+      wrap.appendChild(buildCard(member));
     });
   } catch (error) {
-    container.innerHTML = `<p class="load-error">Could not load member data: ${error.message}</p>`;
+    wrap.innerHTML = `<p class="load-error">Could not load member data: ${error.message}</p>`;
     console.error('Member load error:', error);
   }
 }
 
 // Switch to grid layout
 function showGrid() {
-  container.classList.remove('list-view');
-  gridBtn.classList.add('active');
-  listBtn.classList.remove('active');
-  gridBtn.setAttribute('aria-pressed', 'true');
-  listBtn.setAttribute('aria-pressed', 'false');
+  wrap.classList.remove('list-view');
+  gridbutton.classList.add('active');
+  listbutton.classList.remove('active');
+  gridbutton.setAttribute('aria-pressed', 'true');
+  listbutton.setAttribute('aria-pressed', 'false');
 }
 
 // Switch to list layout (hides images and taglines via CSS)
 function showList() {
-  container.classList.add('list-view');
-  listBtn.classList.add('active');
-  gridBtn.classList.remove('active');
-  listBtn.setAttribute('aria-pressed', 'true');
-  gridBtn.setAttribute('aria-pressed', 'false');
+  wrap.classList.add('list-view');
+  listbutton.classList.add('active');
+  gridbutton.classList.remove('active');
+  listbutton.setAttribute('aria-pressed', 'true');
+  gridbutton.setAttribute('aria-pressed', 'false');
 }
 
-gridBtn.addEventListener('click', showGrid);
-listBtn.addEventListener('click', showList);
+gridbutton.addEventListener('click', showGrid);
+listbutton.addEventListener('click', showList);
 
 // Load members when the page is ready
 loadMembers();

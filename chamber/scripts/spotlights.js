@@ -2,7 +2,7 @@
 // Fetches members.json and displays 2 or 3 random Gold or Silver members
 // as spotlight advertisement cards on the home page.
 
-const spotlightContainer = document.getElementById('spotlights-container');
+const spotlightwrap = document.getElementById('spotlights-wrap');
 
 const LEVEL_LABELS = {
   3: 'Gold Member',
@@ -66,15 +66,15 @@ async function loadSpotlights() {
     const count    = Math.random() < 0.5 ? 2 : 3;
     const selected = shuffle(eligible).slice(0, count);
 
-    if (!spotlightContainer) return;
-    spotlightContainer.innerHTML = '';
+    if (!spotlightwrap) return;
+    spotlightwrap.innerHTML = '';
     selected.forEach(member => {
-      spotlightContainer.appendChild(buildSpotlight(member));
+      spotlightwrap.appendChild(buildSpotlight(member));
     });
   } catch (err) {
     console.error('Spotlight load failed:', err);
-    if (spotlightContainer) {
-      spotlightContainer.innerHTML = '<p class="load-error">Spotlight members could not be loaded.</p>';
+    if (spotlightwrap) {
+      spotlightwrap.innerHTML = '<p class="load-error">Spotlight members could not be loaded.</p>';
     }
   }
 }

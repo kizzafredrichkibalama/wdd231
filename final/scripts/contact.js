@@ -63,9 +63,9 @@ function renderFavorites(allSpacecraft) {
   `).join('');
 
   // EVENT LISTENERS: each remove button re-renders the list
-  favList.querySelectorAll('.fav-remove').forEach(btn => {
-    btn.addEventListener('click', function () {
-      removeFavorite(parseInt(btn.dataset.id));
+  favList.querySelectorAll('.fav-remove').forEach(button => {
+    button.addEventListener('click', function () {
+      removeFavorite(parseInt(button.dataset.id));
       renderFavorites(allSpacecraft); // Re-render after removal
     });
   });

@@ -24,7 +24,7 @@
   margin-bottom: 1.25rem;
 }
 
-.form-group {
+.form-field {
   margin-bottom: 1.25rem;
 }
 
@@ -141,7 +141,7 @@ select option {
   padding: 5rem 0;
 }
 
-.success-container {
+.success-wrap {
   max-width: 680px;
   margin: 0 auto;
   text-align: center;

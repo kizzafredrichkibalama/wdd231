@@ -3,7 +3,7 @@
 @media (min-width: 640px) {
 
   /* Hide hamburger, show horizontal nav */
-  #menu-btn { display: none; }
+  #menu-button { display: none; }
 
   nav {
     display: block;
@@ -42,7 +42,7 @@
   main   { padding: 2rem 2rem 3rem; }
 
   /* Three-column member grid on tablet */
-  #members-container { grid-template-columns: repeat(3, 1fr); }
+  #members-wrap { grid-template-columns: repeat(3, 1fr); }
 
   /* Footer becomes a three-column row */
   .footer-grid {
@@ -59,7 +59,7 @@
 
 @media (min-width: 900px) {
   /* Four columns on wide screens */
-  #members-container { grid-template-columns: repeat(4, 1fr); }
+  #members-wrap { grid-template-columns: repeat(4, 1fr); }
 }
 
 /* ===== HOME PAGE - DESKTOP OVERRIDES ===== */
@@ -87,14 +87,14 @@
     flex-direction: column;
   }
 
-  .spotlights-section #spotlights-container {
+  .spotlights-section #spotlights-wrap {
     flex: 1;
     border-radius: 0 0 var(--radius) var(--radius);
   }
 
   .spotlight-card { flex-direction: column; }
 
-  #spotlights-container {
+  #spotlights-wrap {
     grid-template-columns: 1fr;
   }
 }
@@ -110,13 +110,13 @@
   .weather-section    { grid-column: 2; grid-row: 1; }
   .spotlights-section { grid-column: 3; grid-row: 1; }
 
-  #spotlights-container { grid-template-columns: 1fr; }
+  #spotlights-wrap { grid-template-columns: 1fr; }
 }
 
 /* ===== JOIN PAGE - DESKTOP ===== */
 @media (min-width: 768px) {
   
-  .join-container {
+  .join-wrap {
     grid-template-columns: 1.2fr 1fr;
     gap: 2rem;
   }
@@ -137,7 +137,7 @@
 
 @media (min-width: 900px) {
   
-  .join-container {
+  .join-wrap {
     grid-template-columns: 1.5fr 1fr;
   }
 

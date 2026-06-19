@@ -7,7 +7,7 @@ if (timestampField) {
 }
 
 // Modal handling
-const modalButtons = document.querySelectorAll('.membership-info-btn');
+const modalButtons = document.querySelectorAll('.membership-info-button');
 const modals = {
   np: document.getElementById('np-modal'),
   bronze: document.getElementById('bronze-modal'),
@@ -16,10 +16,10 @@ const modals = {
 };
 
 // Open modal when Learn More button clicked
-modalButtons.forEach(btn => {
-  btn.addEventListener('click', (e) => {
+modalButtons.forEach(button => {
+  button.addEventListener('click', (e) => {
     e.preventDefault();
-    const level = btn.dataset.level;
+    const level = button.dataset.level;
     if (modals[level]) {
       modals[level].showModal();
     }
@@ -30,15 +30,15 @@ modalButtons.forEach(btn => {
 Object.values(modals).forEach(modal => {
   if (!modal) return;
   
-  const closeBtn = modal.querySelector('.modal-close');
-  const closeBtnSecondary = modal.querySelector('.modal-close-btn');
+  const closebutton = modal.querySelector('.modal-close');
+  const closebuttonSecondary = modal.querySelector('.modal-close-button');
   
-  if (closeBtn) {
-    closeBtn.addEventListener('click', () => modal.close());
+  if (closebutton) {
+    closebutton.addEventListener('click', () => modal.close());
   }
   
-  if (closeBtnSecondary) {
-    closeBtnSecondary.addEventListener('click', () => modal.close());
+  if (closebuttonSecondary) {
+    closebuttonSecondary.addEventListener('click', () => modal.close());
   }
   
   // Close modal when clicking outside (on backdrop)

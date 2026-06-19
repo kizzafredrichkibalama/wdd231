@@ -34,7 +34,7 @@
 
   <main id="main-content">
     <section class="page-hero" aria-labelledby="page-title">
-      <div class="container">
+      <div class="wrap">
         <p class="section-label">Get in Touch</p>
         <h1 id="page-title" class="section-title">Contact &amp; <span>Favorites</span></h1>
         <p class="section-desc">Send feedback about the encyclopedia or view spacecraft you have saved to your favorites.</p>
@@ -42,19 +42,19 @@
     </section>
 
     <section aria-labelledby="form-title">
-      <div class="container">
+      <div class="wrap">
         <div class="form-layout">
           <form class="contact-form" method="get" action="contact-success.html">
             <h2 id="form-title">Send a Message</h2>
-            <div class="form-group">
+            <div class="form-field">
               <label for="name">Your Name</label>
               <input type="text" id="name" name="name" placeholder="Enter your full name" required>
             </div>
-            <div class="form-group">
+            <div class="form-field">
               <label for="email">Email Address</label>
               <input type="email" id="email" name="email" placeholder="you@example.com" required>
             </div>
-            <div class="form-group">
+            <div class="form-field">
               <label for="category">Category</label>
               <select id="category" name="category" required>
                 <option value="">Select a category</option>
@@ -64,11 +64,11 @@
                 <option value="Other">Other</option>
               </select>
             </div>
-            <div class="form-group">
+            <div class="form-field">
               <label for="message">Message</label>
               <textarea id="message" name="message" placeholder="Write your message here…" required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Send Message</button>
+            <button type="submit" class="button button-primary">Send Message</button>
           </form>
 
           <aside aria-labelledby="fav-heading">
@@ -84,7 +84,7 @@
   </main>
 
   <footer>
-    <div class="container">
+    <div class="wrap">
       <div class="footer-grid">
         <div>
           <div class="footer-brand">Beyond <span>Earth</span></div>

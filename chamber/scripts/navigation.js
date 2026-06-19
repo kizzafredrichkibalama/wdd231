@@ -1,20 +1,20 @@
 // navigation.js - hamburger toggle for chamber pages
 
-const menuBtn = document.getElementById('menu-btn');
+const menubutton = document.getElementById('menu-button');
 const nav = document.querySelector('nav');
 
-if (menuBtn && nav) {
-  menuBtn.addEventListener('click', () => {
+if (menubutton && nav) {
+  menubutton.addEventListener('click', () => {
     const isOpen = nav.classList.toggle('open');
-    menuBtn.classList.toggle('open', isOpen);
-    menuBtn.setAttribute('aria-expanded', String(isOpen));
+    menubutton.classList.toggle('open', isOpen);
+    menubutton.setAttribute('aria-expanded', String(isOpen));
   });
 
   nav.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       nav.classList.remove('open');
-      menuBtn.classList.remove('open');
-      menuBtn.setAttribute('aria-expanded', 'false');
+      menubutton.classList.remove('open');
+      menubutton.setAttribute('aria-expanded', 'false');
     });
   });
 }

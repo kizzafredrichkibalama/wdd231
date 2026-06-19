@@ -31,8 +31,8 @@ const modalImage    = document.getElementById('modal-image');
 const modalDesc     = document.getElementById('modal-desc');
 const modalSpecs    = document.getElementById('modal-specs');
 const modalNotable  = document.getElementById('modal-notable');
-const modalFavBtn   = document.getElementById('modal-fav-btn');
-const closeBtn      = document.getElementById('modal-close');
+const modalFavbutton   = document.getElementById('modal-fav-button');
+const closebutton      = document.getElementById('modal-close');
 
 // ── HELPER: status → CSS class ────────────────────────────────
 function getStatusClass(status) {
@@ -214,15 +214,15 @@ function renderGrid(spacecraft) {
 // ── BUILD FILTER BUTTONS ──────────────────────────────────────
 function buildFilters(types) {
   filtersEl.innerHTML = types.map(t => `
-    <button class="filter-btn${t === activeFilter ? ' active' : ''}"
+    <button class="filter-button${t === activeFilter ? ' active' : ''}"
             data-type="${t}" aria-pressed="${t === activeFilter}">${t}</button>
   `).join('');
 
-  filtersEl.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', function () {
-      activeFilter = btn.dataset.type;
+  filtersEl.querySelectorAll('.filter-button').forEach(button => {
+    button.addEventListener('click', function () {
+      activeFilter = button.dataset.type;
       localStorage.setItem('filter-choice', activeFilter);
-      filtersEl.querySelectorAll('.filter-btn').forEach(b => {
+      filtersEl.querySelectorAll('.filter-button').forEach(b => {
         b.classList.toggle('active', b.dataset.type === activeFilter);
         b.setAttribute('aria-pressed', b.dataset.type === activeFilter);
       });
@@ -257,11 +257,11 @@ function openModal(s) {
       <span class="card-status ${sc}">${s.status}</span></div></div>
     <div class="spec-item"><div class="spec-label">Mass</div><div class="spec-value">${s.mass_kg.toLocaleString()} kg</div></div>
     <div class="spec-item"><div class="spec-label">Crew</div><div class="spec-value">${s.crew === 0 ? 'Uncrewed' : s.crew}</div></div>`;
-  updateFavBtn();
+  updateFavbutton();
   overlay.classList.add('open');
   overlay.setAttribute('aria-hidden', 'false');
   document.body.classList.add('modal-open');
-  closeBtn.focus();
+  closebutton.focus();
 }
 
 // ── MODAL: CLOSE ──────────────────────────────────────────────
@@ -272,10 +272,10 @@ function closeModal() {
   currentSpacecraftId = null;
 }
 
-function updateFavBtn() {
+function updateFavbutton() {
   const saved = isFavorite(currentSpacecraftId);
-  modalFavBtn.textContent = saved ? '★ Saved to Favorites' : '☆ Save to Favorites';
-  modalFavBtn.classList.toggle('saved', saved);
+  modalFavbutton.textContent = saved ? '★ Saved to Favorites' : '☆ Save to Favorites';
+  modalFavbutton.classList.toggle('saved', saved);
 }
 
 // ── DATA INTEGRATION: LOCAL JSON + NASA API ───────────────────
@@ -338,15 +338,15 @@ async function init() {
 }
 
 // ── EVENT LISTENERS ───────────────────────────────────────────
-closeBtn.addEventListener('click', closeModal);
+closebutton.addEventListener('click', closeModal);
 overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
 });
-modalFavBtn.addEventListener('click', function () {
+modalFavbutton.addEventListener('click', function () {
   if (currentSpacecraftId === null) return;
   const nowSaved = toggleFavorite(currentSpacecraftId);
-  updateFavBtn();
+  updateFavbutton();
   const card   = grid.querySelector(`[data-id="${currentSpacecraftId}"]`);
   const starEl = card ? card.querySelector('.fav-star') : null;
   if (starEl) starEl.textContent = nowSaved ? '★' : '';

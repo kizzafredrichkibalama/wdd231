@@ -4,11 +4,11 @@ let activeFilter = localStorage.getItem('filter-preference') || 'All';
 
 // DOM Elements
 const grid = document.getElementById('spacecraft-grid');
-const filtersContainer = document.getElementById('filters');
+const filterswrap = document.getElementById('filters');
 const countEl = document.getElementById('spacecraft-count');
 const modalOverlay = document.getElementById('modal-overlay');
 const modalClose = document.getElementById('modal-close');
-const modalFavBtn = document.getElementById('modal-fav-btn');
+const modalFavbutton = document.getElementById('modal-fav-button');
 
 // Fetch spacecraft data
 async function fetchSpacecraft() {
@@ -105,18 +105,18 @@ function filterByType(spacecraft, type) {
 
 // Build filter buttons
 function buildFilters(types) {
-  filtersContainer.innerHTML = types.map(type => `
-    <button class="filter-btn${type === activeFilter ? ' active' : ''}" data-type="${type}">
+  filterswrap.innerHTML = types.map(type => `
+    <button class="filter-button${type === activeFilter ? ' active' : ''}" data-type="${type}">
       ${type}
     </button>
   `).join('');
 
-  filtersContainer.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      activeFilter = btn.dataset.type;
+  filterswrap.querySelectorAll('.filter-button').forEach(button => {
+    button.addEventListener('click', () => {
+      activeFilter = button.dataset.type;
       localStorage.setItem('filter-preference', activeFilter);
 
-      filtersContainer.querySelectorAll('.filter-btn').forEach(b => {
+      filterswrap.querySelectorAll('.filter-button').forEach(b => {
         b.classList.toggle('active', b.dataset.type === activeFilter);
       });
 
@@ -153,13 +153,13 @@ function openModal(spacecraft) {
     </div>
   `;
 
-  updateFavBtn(spacecraft.id);
+  updateFavbutton(spacecraft.id);
   modalOverlay.classList.add('open');
   modalClose.focus();
 
-  modalFavBtn.onclick = () => {
+  modalFavbutton.onclick = () => {
     toggleFavorite(spacecraft.id);
-    updateFavBtn(spacecraft.id);
+    updateFavbutton(spacecraft.id);
     // Update card icon
     const card = grid.querySelector(`[data-id="${spacecraft.id}"] .card-name span`);
     if (card) {
@@ -172,10 +172,10 @@ function closeModal() {
   modalOverlay.classList.remove('open');
 }
 
-function updateFavBtn(id) {
+function updateFavbutton(id) {
   const saved = isFavorite(id);
-  modalFavBtn.textContent = saved ? '★ Saved to Favorites' : '☆ Save to Favorites';
-  modalFavBtn.classList.toggle('saved', saved);
+  modalFavbutton.textContent = saved ? '★ Saved to Favorites' : '☆ Save to Favorites';
+  modalFavbutton.classList.toggle('saved', saved);
 }
 
 // Local Storage Functions

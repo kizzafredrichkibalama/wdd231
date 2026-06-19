@@ -156,7 +156,7 @@ nav {
   }
 }
 
-.container {
+.wrap {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
@@ -198,7 +198,7 @@ section {
   margin-bottom: 2.5rem;
 }
 
-.btn {
+.button {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -213,22 +213,22 @@ section {
   border: none;
 }
 
-.btn-primary {
+.button-primary {
   background: var(--accent);
   color: var(--bg);
   font-weight: 700;
 }
-.btn-primary:hover {
+.button-primary:hover {
   background: #33d4ff;
   text-decoration: none;
 }
 
-.btn-outline {
+.button-outline {
   background: 0;
   border: 1px solid var(--border);
   color: var(--text);
 }
-.btn-outline:hover {
+.button-outline:hover {
   border-color: var(--accent);
   color: var(--accent);
   text-decoration: none;

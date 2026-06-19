@@ -110,7 +110,7 @@ header {
 }
 
 /* Hamburger button */
-#menu-btn {
+#menu-button {
   background: transparent;
   border: 2px solid var(--gold);
   border-radius: var(--radius);
@@ -123,13 +123,13 @@ header {
   color: var(--gold);
 }
 
-#menu-btn:hover,
-#menu-btn:focus {
+#menu-button:hover,
+#menu-button:focus {
   background: var(--gold-hover);
   outline: none;
 }
 
-#menu-btn span {
+#menu-button span {
   display: block;
   width: 24px;
   height: 2px;
@@ -138,15 +138,15 @@ header {
   transition: transform 0.3s, opacity 0.3s;
 }
 
-#menu-btn.open span:nth-child(1) {
+#menu-button.open span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
 
-#menu-btn.open span:nth-child(2) {
+#menu-button.open span:nth-child(2) {
   opacity: 0;
 }
 
-#menu-btn.open span:nth-child(3) {
+#menu-button.open span:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
 }
 
@@ -247,23 +247,23 @@ main h1 {
 }
 
 /* ================= BUTTONS ================= */
-.btn,
-.submit-btn,
-.modal-close-btn,
-.return-home-btn,
-.cta-btn,
-.membership-info-btn,
-.view-btn,
-#menu-btn {
+.button,
+.submit-button,
+.modal-close-button,
+.return-home-button,
+.cta-button,
+.membership-info-button,
+.view-button,
+#menu-button {
   font-family: "Source Sans 3", sans-serif;
 }
 
-.btn,
-.submit-btn,
-.modal-close-btn,
-.return-home-btn,
-.cta-btn,
-.membership-info-btn {
+.button,
+.submit-button,
+.modal-close-button,
+.return-home-button,
+.cta-button,
+.membership-info-button {
   background: var(--gold);
   color: var(--navy);
   font-weight: 700;
@@ -273,12 +273,12 @@ main h1 {
   transition: background 0.2s, transform 0.15s;
 }
 
-.btn:hover,
-.submit-btn:hover,
-.modal-close-btn:hover,
-.return-home-btn:hover,
-.cta-btn:hover,
-.membership-info-btn:hover {
+.button:hover,
+.submit-button:hover,
+.modal-close-button:hover,
+.return-home-button:hover,
+.cta-button:hover,
+.membership-info-button:hover {
   background: var(--deep-gold);
   transform: translateY(-2px);
 }
@@ -298,7 +298,7 @@ main h1 {
   color: var(--slate);
 }
 
-.view-btn {
+.view-button {
   background: var(--light);
   border: 2px solid var(--navy);
   border-radius: var(--radius);
@@ -313,20 +313,20 @@ main h1 {
   transition: background 0.2s, color 0.2s;
 }
 
-.view-btn:hover,
-.view-btn:focus {
+.view-button:hover,
+.view-button:focus {
   background: var(--navy);
   color: var(--gold);
   outline: none;
 }
 
-.view-btn.active {
+.view-button.active {
   background: var(--navy);
   color: var(--gold);
 }
 
 /* ================= MEMBERS DIRECTORY ================= */
-#members-container {
+#members-wrap {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.25rem;
@@ -425,12 +425,12 @@ main h1 {
 }
 
 /* List view - one column, no images */
-#members-container.list-view {
+#members-wrap.list-view {
   grid-template-columns: 1fr;
   gap: 0.5rem;
 }
 
-#members-container.list-view .member-card {
+#members-wrap.list-view .member-card {
   flex-direction: row;
   align-items: center;
   padding: 0.75rem 1rem;
@@ -441,17 +441,17 @@ main h1 {
   border-bottom: 1px solid var(--light);
 }
 
-#members-container.list-view .member-card:hover {
+#members-wrap.list-view .member-card:hover {
   transform: none;
   background: var(--light);
 }
 
-#members-container.list-view .card-img,
-#members-container.list-view .tagline {
+#members-wrap.list-view .card-img,
+#members-wrap.list-view .tagline {
   display: none;
 }
 
-#members-container.list-view .card-body {
+#members-wrap.list-view .card-body {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
@@ -459,12 +459,12 @@ main h1 {
   padding: 0;
 }
 
-#members-container.list-view .card-body h2 {
+#members-wrap.list-view .card-body h2 {
   flex-basis: 100%;
   font-size: 0.95rem;
 }
 
-#members-container.list-view .card-detail {
+#members-wrap.list-view .card-detail {
   font-size: 0.82rem;
 }
 
@@ -612,7 +612,7 @@ footer {
   border-radius: 4px;
 }
 
-.cta-btn {
+.cta-button {
   display: inline-block;
   font-size: 0.9rem;
   padding: 0.6rem 1.4rem;
@@ -786,7 +786,7 @@ footer {
   border-radius: var(--radius) var(--radius) 0 0;
 }
 
-#spotlights-container {
+#spotlights-wrap {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.1rem;
@@ -847,7 +847,7 @@ footer {
 }
 
 /* ================= JOIN PAGE ================= */
-.join-container {
+.join-wrap {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
@@ -907,7 +907,7 @@ form input[type="hidden"] {
   display: none;
 }
 
-.submit-btn {
+.submit-button {
   font-size: 1rem;
   padding: 0.75rem 2rem;
   width: 100%;
@@ -974,7 +974,7 @@ form input[type="hidden"] {
   margin-bottom: 1rem;
 }
 
-.membership-info-btn {
+.membership-info-button {
   background: var(--navy);
   color: var(--gold);
   padding: 0.6rem 1.2rem;
@@ -983,7 +983,7 @@ form input[type="hidden"] {
   font-size: 0.9rem;
 }
 
-.membership-info-btn:hover {
+.membership-info-button:hover {
   background: var(--dark-nav);
   color: var(--gold);
 }
@@ -1061,7 +1061,7 @@ form input[type="hidden"] {
   font-size: 1.1rem;
 }
 
-.modal-close-btn {
+.modal-close-button {
   background: var(--navy);
   color: var(--gold);
   padding: 0.7rem 2rem;
@@ -1073,7 +1073,7 @@ form input[type="hidden"] {
   font-family: "Source Sans 3", sans-serif;
 }
 
-.modal-close-btn:hover {
+.modal-close-button:hover {
   background: var(--dark-nav);
   color: var(--gold);
 }
@@ -1165,7 +1165,7 @@ form input[type="hidden"] {
   text-decoration: none;
 }
 
-.return-home-btn {
+.return-home-button {
   display: inline-block;
   background: var(--gold);
   color: var(--navy);
@@ -1178,7 +1178,7 @@ form input[type="hidden"] {
   transition: background 0.2s, transform 0.15s;
 }
 
-.return-home-btn:hover {
+.return-home-button:hover {
   background: var(--deep-gold);
   transform: translateY(-2px);
 }
