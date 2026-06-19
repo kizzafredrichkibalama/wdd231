@@ -24,7 +24,14 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+.fav-empty,
+.era-desc,
+.card-agency,
+.card-footer,
+.attr-desc,
+#fav-count {
+  color: #ffffff!important;
+}
 html {
   scroll-behavior: smooth;
 }
