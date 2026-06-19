@@ -15,11 +15,11 @@
  *
  * DEMONSTRATES:
  *  - URLSearchParams API
- *  - DOM manipulation (createElement, appendChild, classList)
+ *  - DOM manipulation (createElement, appendChild)
  *  - Template literals
  */
 
-// ── READ FORM DATA FROM URL ───────────────────────────────
+// ── READ FORM DATA FROM URL ───────────────────────────────────
 // window.location.search returns the "?name=...&email=..." part of the URL
 const params = new URLSearchParams(window.location.search);
 
@@ -40,7 +40,7 @@ if (container) {
     // TEMPLATE LITERAL: build the card content
     div.innerHTML = `
       <div class="spec-label">${fieldName.toUpperCase()}</div>
-      <div class="spec-value spec-value-formatted">
+      <div class="spec-value" style="font-family:Barlow,sans-serif;font-weight:400;">
         ${value}
       </div>`;
 

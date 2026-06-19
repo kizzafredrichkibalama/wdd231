@@ -47,11 +47,11 @@ function renderFavorites(allSpacecraft) {
 
   if (favs.length === 0) {
     favList.innerHTML    = '';
-    favEmpty.style.display = 'block';
+    favEmpty.classList.add('visible');
     return;
   }
 
-  favEmpty.style.display = 'none';
+  favEmpty.classList.remove('visible');
 
   // ARRAY METHOD + TEMPLATE LITERAL: .map() builds each list item
   favList.innerHTML = favs.map(s => `
