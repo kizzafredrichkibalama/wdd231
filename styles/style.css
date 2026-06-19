@@ -29,7 +29,8 @@
 .card-agency,
 .card-footer,
 .attr-desc,
-#fav-count {
+#fav-count,
+.span{
   color: #ffffff!important;
 }
 html {
