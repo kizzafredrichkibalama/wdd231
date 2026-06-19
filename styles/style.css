@@ -2,12 +2,19 @@
   --bg: #060c1a;
   --surface: #0d1b35;
   --surface2: #112040;
+
   --accent: #00c8ff;
   --accent2: #f97316;
+
   --text: #cdd8f0;
-  --muted: #e3e6ec;   /* 👈 Lighter — passes WCAG AA on all backgrounds */
-  --heading: #fff;
+
+  /* FIXED FOR ACCESSIBILITY */
+  --muted: #8aa0d0;
+
+  --heading: #ffffff;
+
   --border: rgba(0, 200, 255, 0.15);
+
   --radius: 6px;
 }
 
