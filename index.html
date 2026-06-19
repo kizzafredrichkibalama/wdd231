@@ -13,7 +13,7 @@
   <meta name="description" content="Explore humanity's greatest machines - an interactive encyclopedia of spacecraft from Sputnik to Starship.">
   <meta name="author" content="Kizza Fredrich Kibalama">
   <meta property="og:title" content="Beyond Earth - Spacecraft Encyclopedia">
-  <meta property="og:description" content="Explore humanity's greatest machines in an interactive encyclopedia of spacecraft from Sputnik to Starship.">
+  <meta property="og:description" content="Explore humanity's greatest machines. Interactive guide to spacecraft from Sputnik to Starship.">
   <meta property="og:image" content="https://kizzafredrichkibalama.github.io/wdd231/final/images/og-image.jpg">
   <meta property="og:url" content="https://kizzafredrichkibalama.github.io/wdd231/final/">
 </head>
@@ -22,58 +22,59 @@
 
   <header>
     <nav aria-label="Main navigation">
-      <a href="index.html" class="nav-brand">Beyond <span>Earth</span></a>
+      <a href="index.html" class="nav-brand" aria-current="page">Beyond <span>Earth</span></a>
       <button id="hamburger" class="hamburger" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation menu">☰</button>
       <ul id="nav-links" class="nav-links">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html" aria-current="page">Home</a></li>
         <li><a href="history.html">History</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-
-
+  <!-- MAIN now includes the hero section so the <h1> is inside the main landmark -->
   <main id="main-content">
     <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-bg" aria-hidden="true"></div>
-    <div class="container hero-content">
-      <p class="hero-eyebrow">A Spacecraft Encyclopedia</p>
-      <h1 id="hero-title" class="hero-title">Beyond<br><span>Earth</span></h1>
-      <p class="hero-sub">From Sputnik's first beep in 1957 to Starship's thunderous ascent — explore the machines that extended humanity's reach into the cosmos.</p>
-      <div class="hero-stats">
-        <div class="stat-item">
-          <span class="stat-num" id="stat-total">—</span>
-          <span class="stat-label">Spacecraft</span>
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <p class="hero-eyebrow">A Spacecraft Encyclopedia</p>
+        <h1 id="hero-title" class="hero-title">Beyond<br><span>Earth</span></h1>
+        <p class="hero-sub">From Sputnik's first beep in 1957 to Starship's thunderous ascent — explore the machines that extended humanity's reach into the cosmos.</p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-num" id="stat-total">—</span>
+            <span class="stat-label">Spacecraft</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num" id="stat-active">—</span>
+            <span class="stat-label">Still Active</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num" id="stat-agencies">—</span>
+            <span class="stat-label">Space Agencies</span>
+          </div>
         </div>
-        <div class="stat-item">
-          <span class="stat-num" id="stat-active">—</span>
-          <span class="stat-label">Still Active</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num" id="stat-agencies">—</span>
-          <span class="stat-label">Space Agencies</span>
+        <div class="hero-actions">
+          <a href="#spacecraft" class="btn btn-primary">Explore Spacecraft</a>
+          <a href="history.html" class="btn btn-outline">View History</a>
         </div>
       </div>
-      <div class="hero-actions">
-        <a href="#spacecraft" class="btn btn-primary">Explore Spacecraft</a>
-        <a href="history.html" class="btn btn-outline">View History</a>
-      </div>
-    </div>
-  </section>
+    </section>
+
     <section id="spacecraft" aria-labelledby="grid-title">
       <div class="container">
         <p class="section-label">The Collection</p>
         <h2 id="grid-title" class="section-title">Spacecraft <span>Database</span></h2>
         <p class="section-desc">Browse <span id="spacecraft-count">18</span> spacecraft from across the history of space exploration. Click any card to see full mission details and save your favorites.</p>
         <div id="filters" class="filters" role="group" aria-label="Filter by type"></div>
-        <div id="spacecraft-grid" class="spacecraft-grid" aria-live="polite">
+        <div id="spacecraft-grid" class="spacecraft-grid" aria-live="polite" aria-atomic="true">
           <p class="loading">Loading spacecraft data…</p>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- Modal and footer remain unchanged -->
   <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
     <div class="modal">
       <div class="modal-header">
@@ -103,7 +104,7 @@
         <nav aria-label="Footer navigation">
           <p class="footer-heading">Pages</p>
           <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html" aria-current="page">Home</a></li>
             <li><a href="history.html">History</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="attributions.html">Attributions</a></li>
@@ -115,7 +116,7 @@
             <li><a href="https://www.nasa.gov" target="_blank" rel="noopener">NASA</a></li>
             <li><a href="https://www.spacex.com" target="_blank" rel="noopener">SpaceX</a></li>
             <li><a href="https://www.esa.int" target="_blank" rel="noopener">ESA</a></li>
-            <li><a href="your-video-link-here" target="_blank" rel="noopener">Demo Video</a></li>
+            <li><a href="https://www.youtube.com/watch?v=OLLdwzmYhpo" target="_blank" rel="noopener">Demo Video</a></li>
           </ul>
         </div>
       </div>
