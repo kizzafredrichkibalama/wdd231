@@ -9,17 +9,13 @@
   --text: #cdd8f0;
 
   /* FIXED FOR ACCESSIBILITY */
-  --muted: #eceef3;
+  --muted: #8aa0d0;
 
   --heading: #ffffff;
 
   --border: rgba(0, 200, 255, 0.15);
 
   --radius: 6px;
-}
-/* targets the specific class */
-.fav-empty {
-  color: #ecedf0; /* lighter than --muted, passes 4.5:1 */
 }
 
 /* RESET */
