@@ -1,0 +1,311 @@
+/* ========================================
+   CONTACT.CSS - CONTACT PAGE STYLES
+   Form & Favorites Panel
+   ======================================== */
+
+/* ========================================
+   FORM LAYOUT
+   ======================================== */
+
+.form-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .form-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* ========================================
+   CONTACT FORM
+   ======================================== */
+
+.contact-form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+
+.contact-form h2 {
+  font-family: Orbitron, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--heading);
+  margin-bottom: 1.25rem;
+}
+
+/* FORM GROUPS */
+.form-field {
+  margin-bottom: 1.25rem;
+}
+
+.form-field:last-of-type {
+  margin-bottom: 1.5rem;
+}
+
+/* LABELS */
+label {
+  display: block;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+
+/* FORM INPUTS */
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: Barlow, sans-serif;
+  font-size: 0.95rem;
+  padding: 0.65rem 0.9rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+textarea::placeholder {
+  color: var(--muted);
+}
+
+/* FOCUS STATES */
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+  outline: 0;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0, 200, 255, 0.1);
+}
+
+/* SELECT DROPDOWN */
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2300c8ff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2rem;
+}
+
+select option {
+  background: var(--surface);
+  color: var(--text);
+}
+
+/* TEXTAREA */
+textarea {
+  resize: vertical;
+  min-height: 120px;
+  font-family: Barlow, sans-serif;
+}
+
+/* SUBMIT BUTTON */
+.form-submit {
+  margin-top: 1.5rem;
+}
+
+/* ========================================
+   FAVORITES PANEL
+   ======================================== */
+
+.favorites-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.fav-title {
+  font-family: Orbitron, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--heading);
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.fav-title span {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-weight: 400;
+  margin-left: 0.5rem;
+}
+
+/* FAVORITES LIST */
+.fav-list {
+  list-style: none;
+}
+
+.fav-list li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.88rem;
+  color: var(--text);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.fav-list li:last-child {
+  border-bottom: none;
+}
+
+.fav-list li span {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* REMOVE BUTTON */
+.fav-remove {
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.4rem;
+  transition: color 0.2s;
+  flex-shrink: 0;
+  border-radius: 2px;
+}
+
+.fav-remove:hover {
+  color: var(--accent2);
+}
+
+/* EMPTY MESSAGE */
+.fav-empty {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-style: italic;
+  display: none;
+  padding: 1rem 0;
+}
+
+.fav-empty.visible {
+  display: block;
+}
+
+/* ========================================
+   SUCCESS PAGE
+   ======================================== */
+
+.success-section {
+  padding: 5rem 0;
+}
+
+.success-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.success-wrap .section-label {
+  margin-bottom: 1rem;
+}
+
+.success-wrap .section-title {
+  margin-bottom: 1rem;
+}
+
+.success-wrap .section-desc {
+  margin-bottom: 2rem;
+}
+
+/* SUBMISSION DATA GRID */
+.submission-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 2rem 0;
+  text-align: left;
+}
+
+@media (max-width: 480px) {
+  .submission-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.submission-grid .spec-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+}
+
+.submission-grid .spec-label {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.submission-grid .spec-value {
+  font-size: 0.95rem;
+  color: var(--text);
+  word-break: break-word;
+}
+
+/* SUCCESS ACTIONS */
+.success-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* ========================================
+   RESPONSIVE ADJUSTMENTS
+   ======================================== */
+
+@media (max-width: 640px) {
+  .contact-form {
+    padding: 1.5rem;
+  }
+
+  .contact-form h2 {
+    font-size: 1rem;
+  }
+
+  label {
+    font-size: 0.65rem;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  select,
+  textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+
+  .favorites-panel {
+    padding: 1rem;
+  }
+
+  .fav-title {
+    font-size: 0.9rem;
+  }
+}
