@@ -1,3 +1,0 @@
-// History Page JavaScript
-
-initNav();

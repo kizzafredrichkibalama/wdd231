@@ -11,7 +11,7 @@ const courses = [
 
 const grid = document.getElementById('course-grid');
 const creditsEl = document.getElementById('credits-total');
-const filterbuttons = document.querySelectorAll('.filter-button');
+const filterBtns = document.querySelectorAll('.filter-btn');
 
 function displayCourses(list) {
   if (!grid) return;
@@ -31,15 +31,15 @@ function displayCourses(list) {
   }
 }
 
-function setActivebutton(button) {
-  filterbuttons.forEach(b => b.classList.remove('active'));
-  button.classList.add('active');
+function setActiveBtn(btn) {
+  filterBtns.forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
 }
 
-filterbuttons.forEach(button => {
-  button.addEventListener('click', () => {
-    setActivebutton(button);
-    const filter = button.dataset.filter;
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    setActiveBtn(btn);
+    const filter = btn.dataset.filter;
     if (filter === 'all') {
       displayCourses(courses);
     } else {
@@ -51,5 +51,5 @@ filterbuttons.forEach(button => {
 // Initial display — All
 displayCourses(courses);
 // Mark the "All" button active on load
-const allbutton = document.querySelector('[data-filter="all"]');
-if (allbutton) allbutton.classList.add('active');
+const allBtn = document.querySelector('[data-filter="all"]');
+if (allBtn) allBtn.classList.add('active');
